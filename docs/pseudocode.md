@@ -1,29 +1,40 @@
 # 1.LOGIN 
-START 
-    Display Login Page 
+START
 
-    Ask user to enter email 
-    Ask user to enter password 
+Get email from email input
+Get password from password input
 
-IF email or password is empty THEN 
-   Display "Please complete all fields" 
-ELSE 
-   Send login details to Fiirebase Authentication 
+IF email is empty OR password is empty THEN
+    Display "Please enter your email and password"
+    STOP
+END IF
 
-IF login is successful THEN 
-   Get user's role 
+Call Firebase Authentication signInWithEmailAndPassword
+    using email and password
 
-If role is "learner" THEN
-   redirect to Learner Dashboard 
-ELSE IF role is "assessor" THEN 
-   redirect to Assessor Dashboard 
+IF authentication is successful THEN
 
-END IF 
+    Get the authenticated user's UID
 
- ELSE Display "Invalid email or Password"
-  END IF
-END IF 
-END 
+    Search the users collection using the UID
+
+    Get the user's role
+
+    IF role = "learner" THEN
+        Redirect to learner-dashboard.html
+
+    ELSE IF role = "assessor" THEN
+        Redirect to assessor-dashboard.html
+
+    ELSE
+        Display "User role not found"
+    END IF
+
+ELSE
+    Display Firebase authentication error
+END IF
+
+END
 
 # USER REGISTRATION 
 START 
@@ -72,29 +83,67 @@ END
 
 # 4.TASK CREATION 
 START 
-   Display task form 
+  START
 
-   Ask learner to enter task title 
-   Ask learner to select task category 
-   Ask learner to select due date 
+Get the values from the task form:
+    title = taskTitleInput.value
+    category = categorySelect.value
+    dueDate = dueDateInput.value
+    priority = prioritySelect.value
 
-IF required information is missing THEN 
-   Display "Please complete all required fields" 
-ELSE 
-   Create at task object 
-   Store : task title 
-           category 
-           due date 
-           user ID 
-           
-   Save to Firebase 
+Get the currently logged-in user's ID:
+    userId = Firebase Authentication currentUser.uid
 
-   Display "Task created successfully" 
-   Refresh task list 
+IF title is empty OR category is empty OR dueDate is empty THEN
+    Display "Please complete all required fields"
+    STOP
+END IF
+
+Create a task object:
+    task = {
+        title: title,
+        category: category,
+        dueDate: dueDate,
+        priority: priority,
+        completed: false,
+        userId: userId
+    }
+
+Add task to Firestore:
+    collection = "tasks"
+    save task
+
+IF task is successfully saved THEN
+    Clear the form
+    Display "Task created successfully"
+    Load and display the updated task list
+ELSE
+    Display "Unable to create task"
+END IF
+
+END
+
+# 5.SEARCH TASKS 
+START
+    Retrieve all tasks 
+    Ask user to enter search term
+    Filter task array 
+
+FOR each task 
+    IF task title contains search term THEN 
+       Add task to filtered results 
    END IF 
+END FOR 
+
+Display filtered tasks 
+
+IF no tasks match THEN 
+   Display " No tasks found"
+END IF 
 END 
 
-# 5.VIEW TASKS 
+
+# 6.VIEW TASKS 
 START 
    Get current user's ID 
    Retrieve tasks from Firebase 
@@ -106,7 +155,7 @@ For Each task
 END FOR 
 END 
 
-# 6.UPDATE TASK
+# 7.UPDATE TASK
 START 
    Learner selects a task 
    Display task information 
@@ -125,35 +174,71 @@ START
    END IF 
 END 
 
-# 7.DELETION CONFIRMATION 
-START 
-   Learner clicks delete 
+# 8.DELETION CONFIRMATION 
+START
 
-   Display Confirmation dialog: 
-   "Are you sure you want to delete this task?"
+When the user clicks the Delete button:
 
-IF learner clicks "cancel" THEN 
-   Close confirmation dialog 
-   Keep task 
-ELSE IF 
-   learner clicks "confirm" THEN 
-   Delete task from Firebase 
-   Display "Task deleted successfully"
-END IF 
-END 
+    Get the task ID associated with the selected task
 
-# 8.CALCULATE LEARNER PROGRESS 
-START 
-    Retrieve task 
+    Display confirmation dialog:
+        "Are you sure you want to delete this task?"
 
-    Count Completed tasks 
-    Count Outstanding tasks 
-    Calculate Percentage 
-    Display Progress 
-END 
+    IF user clicks Cancel THEN
+        Close confirmation dialog
+        Do not delete the task
+
+    ELSE IF user clicks Confirm THEN
+
+        Find the task document in the "tasks" collection
+        using the task ID
+
+        Delete the task document from Firestore
+
+        IF deletion is successful THEN
+            Display "Task deleted successfully"
+            Remove the task from the displayed task list
+        ELSE
+            Display "Unable to delete task"
+        END IF
+
+    END IF
+
+END
+
+# 9.CALCULATE LEARNER PROGRESS 
+START
+
+Get the currently logged-in user's UID
+
+Retrieve all documents from the "tasks" collection
+where userId equals the current user's UID
+
+Set totalTasks = number of retrieved tasks
+Set completedTasks = 0
+
+FOR EACH task in retrieved tasks
+
+    IF task.completed === true THEN
+        completedTasks = completedTasks + 1
+    END IF
+
+END FOR
+
+IF totalTasks > 0 THEN
+    progress = (completedTasks / totalTasks) * 100
+ELSE
+    progress = 0
+END IF
+
+Round progress to the nearest whole number
+
+Display progress + "%"
+
+END
 
 
-# 9.REQUEST / BOOK SUPPORT 
+# 10.REQUEST / BOOK SUPPORT 
 START 
     Display support booking form 
 
@@ -172,7 +257,7 @@ ELSE
 END IF 
 END 
 
-# 10.VIEW SUPPORT REQUEST STATUS 
+# 11.VIEW SUPPORT REQUEST STATUS 
 START 
    Retrieve learner's support requests 
 
@@ -193,86 +278,116 @@ START
    END IF 
    END 
 
-# 11.ASSESSOR REVIEWS SUPPORT BOOKING 
+# 12.ASSESSOR APPROVES REVIEWS SUPPORT BOOKING 
 START
-    Assessor opens Support Bookings
-    Retrieve support bookings from Firebase 
 
-    Display bookings: 
-                   learner
-                   topic 
-                   preferred date 
-                   status 
+When assessor clicks "Approve":
 
-   Assessor selects booking 
+    Get support request ID
 
-   IF assessor chooses "Approve" THEN 
-      Set ststus = "Approved" 
-      Update booking in Firebase 
-      Notify learner 
-   ELSE IF assessor chooses "Decline" Then 
-      Set status = "Declined" 
-      Update booking in Firebase 
-      Notify learner 
-   END IF 
+    Find the support request document
+    using the request ID
 
-# 12. UPLOAD A DOCUMENT 
-START 
-    Learner selects "Upload Document" 
-    Display upload form 
-    Ask learner to select a file 
+    Update the status field to:
+        "Approved"
 
-IF no file is selected THEN 
-   Display "Please select a document" 
-ELSE 
-   Validate file type and size 
+    Save the updated document to Firestore
 
-   IF file is valid THEN 
-     Upload document 
-     Save document information 
-     Link document to current user's ID 
-     Display "Document uploaded successfully" 
-   ELSE 
-     Display "Invalid file" 
-   END IF 
-END IF 
-END 
+    IF update is successful THEN
+        Display "Support request approved"
+        Refresh the booking list
+    ELSE
+        Display "Unable to update request"
+    END IF
 
-# 13. SEARCH / FILTER 
+END
+
+### FOR DECLINE: 
 START
-    Retrieve all tasks 
-    Ask user to enter search term
-    Filter task array 
 
-FOR each task 
-    IF task title contains search term THEN 
-       Add task to filtered results 
-   END IF 
-END FOR 
+When assessor clicks "Decline":
 
-Display filtered tasks 
+    Get support request ID
 
-IF no tasks match THEN 
-   Display " No tasks found"
-END IF 
-END 
+    Display decline reason input
 
-# 14.ASSESSOR VIEWS LEARNERS 
-START 
-    Assessor opens learner page 
-    Retrieve learner information from Firebase
+    Get decline reason
 
-FOR each learner 
-   Display : 
-           learner name 
-           completed tasks 
-           outstanding tasks 
-           progress 
-           support status 
-END FOR 
-END 
+    IF decline reason is empty THEN
+        Display "Please provide a reason"
+        STOP
+    END IF
 
-# 15.DISPLAY LEARNERS NEEDING SUPPORT 
+    Update support request:
+
+        status = "Declined"
+        reason = declineReason
+
+    Save changes to Firestore
+
+    IF update is successful THEN
+        Display "Support request declined"
+        Refresh booking list
+    ELSE
+        Display "Unable to update request"
+    END IF
+
+END
+
+# 13. UPLOAD A DOCUMENT 
+START
+
+When learner selects a document:
+
+    Get selected file
+
+    IF no file is selected THEN
+        Display "Please select a file"
+        STOP
+    END IF
+
+    Get file name
+    Get file type
+    Get file size
+
+    Check whether file type is allowed
+
+    IF file type is not allowed THEN
+        Display "File type not supported"
+        STOP
+    END IF
+
+    Check whether file size is within the allowed limit
+
+    IF file size is too large THEN
+        Display "File is too large"
+        STOP
+    END IF
+
+    Get current user's UID
+
+    Upload file to Firebase Storage
+
+    Get the uploaded file URL
+
+    Create document record:
+
+        document = {
+            userId: currentUser.uid,
+            fileName: file.name,
+            fileType: file.type,
+            fileUrl: downloadURL
+        }
+
+    Save document record to Firestore
+
+    Display "Document uploaded successfully"
+
+END
+
+
+
+# 14.DISPLAY LEARNERS NEEDING SUPPORT 
 START 
     Retrieve learner progress and support information
 
@@ -291,7 +406,7 @@ FOR each learner
    END FOR 
    END 
    
-# 16.PRINT PROGRESS SUMMARY
+# 15.PRINT PROGRESS SUMMARY
 START 
     Learner opens Progress page 
     Retrieve learner progress 
