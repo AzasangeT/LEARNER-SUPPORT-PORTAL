@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="SRC/stylesheet.css">
+</head>
+<body>
+   <!-- =========================================
+         NAVIGATION BAR
+         ========================================= -->
+
+    <nav class="public-navbar">
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+                SKILLS TRACK
+            </a>
+
+            <div class="nav-links">
+
+                <a href="index.html">
+                    Home
+                </a>
+
+                <a href="About_us.html">
+                    About Us
+                </a>
+
+                <a href="Contact.html">
+                    Contact
+                </a>
+
+                <a href="Login.html" class="nav-login">
+                    Login
+                </a>
+
+                <a href="Registration.html" class="nav-register">
+                    Register
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Sign Up Section -->
+<section class="auth-section">
+
+    <div class="auth-card">
+
+        <h1>Create Your Account</h1>
+
+        <p><h1>Welcome to Skills Track</h1>
+           Create your account and start building your skills.</p>
+
+        <form id="signupForm">
+
+            <label for="firstName">Full name</label>
+            <input
+                type="text"
+                id="firstName"
+                name="firstName"
+                placeholder="Enter your Full Name"
+                required
+            >
+
+              <select name="AccountType" id="AccountType" required>
+                <option value="">Select Account Type</option>
+
+               <option value="Learner">Learner</option>
+               <option value="Assessor">Assessor</option>
+
+              </select>
+
+
+            <label for="email">Email Address</label>
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email address"
+                required
+            >
+
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Create a password"
+                required
+            >
+
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                placeholder="Confirm your password"
+                required
+            >
+
+            <button type="submit" class="primary-btn">
+                Create Account
+            </button>
+
+        </form>
+
+        <p class="auth-link">
+            Already have an account?
+            <a href="login.html">Login here</a>
+        </p>
+
+    </div>
+
+</section>
+
+<script type="module" src="java/Registration.js"></script>
+</body>
+</html>

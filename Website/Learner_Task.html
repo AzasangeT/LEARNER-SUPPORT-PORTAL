@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="SRC/stylesheet.css">
+    <title>Learner_Task</title>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            Skills Track
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="Learner_Dashboard.html" >
+                Dashboard
+            </a>
+
+            <a href="Learner_Progress.html">
+                Progress
+            </a>
+
+            <a href="Learner_Tasks.html" class="active">
+                Tasks
+            </a>
+
+            <a href="Learner_Booking.html">
+                Booking
+            </a>
+
+            <a href="Learner_Resources.html">
+                Learner Resources
+            </a>
+
+            <a href="Learner_Game.html">
+                Game
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="logout-link">
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Application -->
+    <main class="main-content">
+
+        <header class="app-header">
+
+            <h1>Learner Task</h1>
+
+            <div class="user-area">
+                Welcome, Kenneth
+            </div>
+
+        </header>
+
+<section class="dashboard-content">
+
+    <!-- =========================================
+         TASK PAGE HEADER
+    ========================================== -->
+
+    <div class="task-page-header">
+
+        <div>
+            <h2>My Learning Tasks</h2>
+            <p>Manage and keep track of your learning tasks.</p>
+        </div>
+
+        <button type="button"
+         class="create-task-btn"
+         id = "createTaskBtn"
+         >
+            + Create New Task
+        </button>
+
+    </div>
+
+
+    <!-- =========================================
+         TASK CONTROLS
+    ========================================== -->
+
+    <div class="task-controls">
+
+        <!-- Search -->
+        <div class="task-search">
+            <label for="taskSearch">Search</label>
+
+            <input
+                type="text"
+                id="taskSearch"
+                placeholder="Search tasks..."
+            >
+        </div>
+
+
+        <!-- Filter -->
+        <div class="task-filter">
+            <label for="taskFilter">Filter</label>
+
+            <select id="taskFilter">
+                <option value="all">All</option>
+                <option value="outstanding">Outstanding</option>
+                <option value="completed">Completed</option>
+            </select>
+        </div>
+
+
+        <!-- Sort -->
+        <div class="task-sort">
+            <label for="taskSort">Sort</label>
+
+            <select id="taskSort">
+                <option value="dueDate">Due Date</option>
+                <option value="priority">Priority</option>
+                <option value="title">Task Name</option>
+            </select>
+        </div>
+
+    </div>
+
+
+    <!-- =========================================
+         TASK LIST
+    ========================================== -->
+
+    <div id="taskList" class="learner-task-list">
+        
+
+    </div>
+
+    <!-- =========================================
+     CREATE TASK FORM
+========================================== -->
+
+<div class="create-task-section" id="createTaskSection">
+
+    <div class="create-task-header">
+
+        <div>
+            <h2>Create Learning Task</h2>
+            <p>Add a new task to your learning plan.</p>
+        </div>
+
+    </div>
+
+
+    <form id="taskForm" class="create-task-form">
+
+        <!-- Task Title -->
+        <div class="task-form-group">
+
+            <label for="taskTitle">
+                Task Title
+            </label>
+
+            <input
+                type="text"
+                id="taskTitle"
+                placeholder="Enter task title"
+                required
+            >
+
+        </div>
+
+
+        <!-- Category -->
+        <div class="task-form-group">
+
+            <label for="taskCategory">
+                Category
+            </label>
+
+            <select id="taskCategory" required>
+
+                <option value="">
+                    Select Category
+                </option>
+
+                <option value="Programming">
+                    Programming
+                </option>
+
+                <option value="Database">
+                    Database
+                </option>
+
+                <option value="Web Development">
+                    Web Development
+                </option>
+
+                <option value="Networking">
+                    Networking
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Due Date -->
+        <div class="task-form-group">
+
+            <label for="taskDueDate">
+                Due Date
+            </label>
+
+            <input
+                type="date"
+                id="taskDueDate"
+                required
+            >
+
+        </div>
+
+
+        <!-- Priority -->
+        <div class="task-form-group">
+
+            <label for="taskPriority">
+                Priority
+            </label>
+
+            <select id="taskPriority" required>
+
+                <option value="">
+                    Select Priority
+                </option>
+
+                <option value="Low">
+                    Low
+                </option>
+
+                <option value="Medium">
+                    Medium
+                </option>
+
+                <option value="High">
+                    High
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- Description -->
+        <div class="task-form-group task-description">
+
+            <label for="taskDescription">
+                Description
+            </label>
+
+            <textarea
+                id="taskDescription"
+                rows="5"
+                placeholder="Enter task description"
+            ></textarea>
+
+        </div>
+
+
+        <!-- Buttons -->
+        <div class="create-task-actions">
+
+            <button
+                type="button"
+                class="cancel-task-btn"
+                id="cancelTaskBtn"
+            >
+                Cancel
+            </button>
+
+            <button
+                type="submit"
+                class="save-task-btn"
+            >
+                Save Task
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+         
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<script type="module" src="Java/Learner_Task.js"></script>
+</body>
+</html>
