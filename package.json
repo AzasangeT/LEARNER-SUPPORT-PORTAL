@@ -1,0 +1,23 @@
+{
+  "name": "learner-support-portal",
+  "version": "1.0.0",
+  "description": "The Student Support Portal is a web-based system designed to help learners manage their learning activities and communicate with assessors.",
+  "homepage": "https://github.com/AzasangeT/LEARNER-SUPPORT-PORTAL#readme",
+  "bugs": {
+    "url": "https://github.com/AzasangeT/LEARNER-SUPPORT-PORTAL/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AzasangeT/LEARNER-SUPPORT-PORTAL.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

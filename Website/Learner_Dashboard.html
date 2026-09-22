@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="SRC/stylesheet.css">
+    <title>Learner_Dashboard</title>
+</head>
+<body>
+    <div class="app-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            Skills Track
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="Learner_dashboard.html" class="active">
+                Dashboard
+            </a>
+
+            <a href="Learner_Progress.html">
+                Progress
+            </a>
+
+            <a href="Learner_Tasks.html">
+                Tasks
+            </a>
+
+            <a href="Learner_Booking.html">
+                Booking
+            </a>
+
+            <a href="Learner_Progress.html">
+                Learner Resources
+            </a>
+
+            <a href="Learner_Game.html">
+                Game
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="logout-link">
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Application -->
+    <main class="main-content">
+
+        <header class="app-header">
+
+            <h1>Dashboard</h1>
+
+            <div class="user-area">
+                Welcome, <span id="learnerName">Learner</span>
+           </div>
+
+        </header>
+
+      <!-- Dashboard Content -->  
+       
+        <section class="dashboard-content">
+         
+
+         
+         <div class="dashboard-summary">
+
+
+        <div class="summary-card">
+            <h3>My Tasks</h3>
+            <p>5</p>
+            <span>2 outstanding</span>
+        </div>
+
+        <div class="summary-card">
+            <h3>Completed Tasks</h3>
+            <p>3</p>
+            <span>Keep it up!</span>
+        </div>
+
+        <div class="summary-card">
+            <h3>My Progress</h3>
+            <p>60%</p>
+            <span>Overall progress</span>
+        </div>
+
+        <div class="summary-card">
+            <h3>Support Requests</h3>
+            <p>1</p>
+            <span>Pending request</span>
+        </div>
+
+    </div>
+
+
+    <!-- My Tasks -->
+    <div class="dashboard-section">
+
+        <div class="section-header">
+            <h2>My Tasks</h2>
+            <a href="Learner_Task.html">View All</a>
+        </div>
+
+        <div class="task-list">
+
+            <div class="task-item">
+                <div>
+                    <h3>JavaScript Assignment</h3>
+                    <p>Programming</p>
+                </div>
+
+                <span class="status-pending">Pending</span>
+            </div>
+
+            <div class="task-item">
+                <div>
+                    <h3>Database Activity</h3>
+                    <p>Database</p>
+                </div>
+
+                <span class="status-completed">Completed</span>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Announcements -->
+    <div class="dashboard-section">
+
+        <div class="section-header">
+            <h2>Announcements</h2>
+        </div>
+
+        <div class="announcement-item">
+            <h3>Assessment Reminder</h3>
+
+            <p>
+                Remember to submit your JavaScript assessment
+                before Friday.
+            </p>
+        </div>
+
+    </div>
+
+
+    <!-- Support Booking -->
+    <div class="dashboard-section">
+
+        <div class="section-header">
+            <h2>Upcoming Support</h2>
+
+            <a href="Learner_Booking.html">
+                View Bookings
+            </a>
+        </div>
+
+        <div class="booking-item">
+
+            <div>
+                <h3>JavaScript Support Session</h3>
+                <p>24 September 2026</p>
+            </div>
+
+            <span>10:00</span>
+
+        </div>
+
+    </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="module" src="Java/Learner_Dashboard.js"></script>
+</body>
+</html>
