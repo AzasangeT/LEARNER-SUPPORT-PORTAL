@@ -1,0 +1,125 @@
+<mxfile host="Electron">
+  <diagram name="Page-1" id="zaktaskHDNexNJZFvhJR">
+    <mxGraphModel dx="860" dy="563" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="GWlvvtTyz9JugliedSh_-20" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;USER&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;&lt;b&gt;- &lt;/b&gt;uid&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- displayName&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- email&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- role&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- CreativeArt&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;+ register ()&lt;/span&gt;&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;+ signIn ()&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;+ signOut ()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="202" width="140" x="320" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-21" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;text-align: center; margin: 4px 0px 0px;&quot;&gt;&lt;b&gt;BOOKING&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;text-align: center; margin: 4px 0px 0px;&quot;&gt;- bookingId&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- userId&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- topic&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- prefferedDate&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- notes&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- status&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;+ createBooking ()&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;+ updateStatus ()&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;+ cancelBooking ()&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;&lt;b&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/b&gt;&lt;/p&gt;" vertex="1">
+          <mxGeometry height="210" width="140" x="530" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-22" parent="1" style="verticalAlign=top;align=left;overflow=fill;html=1;whiteSpace=wrap;" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;b&gt;TASK&lt;/b&gt;&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- taskId&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- userId&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- tittle&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- category&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- dueDate&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- priority&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- completed&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;- createdAt&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;+ createTask ()&lt;br&gt;+ updateTask ()&lt;br&gt;+ deleteTask ()&lt;/p&gt;&lt;p style=&quot;margin: 4px 0px 0px;&quot;&gt;+ markComplete ()&lt;/p&gt;" vertex="1">
+          <mxGeometry height="250" width="140" x="100" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-23" parent="1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="140" x="320" y="280" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-24" parent="1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="40" width="140" x="320" y="158" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-33" edge="1" parent="1" source="GWlvvtTyz9JugliedSh_-20" style="endArrow=block;dashed=1;endFill=0;endSize=12;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <Array as="points" />
+            <mxPoint x="270" y="380" as="sourcePoint" />
+            <mxPoint x="390" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-39" edge="1" parent="1" style="endArrow=none;html=1;edgeStyle=orthogonalEdgeStyle;rounded=0;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="170" y="450" as="sourcePoint" />
+            <mxPoint x="600" y="450" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-42" edge="1" parent="1" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Requests&lt;/font&gt;">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint x="600" y="450" as="sourcePoint" />
+            <mxPoint x="600" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-45" edge="1" parent="1" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Owns&lt;/font&gt;">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="510" />
+            </Array>
+            <mxPoint x="170" y="450" as="sourcePoint" />
+            <mxPoint x="170" y="560" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-49" edge="1" parent="1" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="600" y="580" />
+            </Array>
+            <mxPoint x="600" y="560" as="sourcePoint" />
+            <mxPoint x="600" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-50" connectable="0" parent="GWlvvtTyz9JugliedSh_-49" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.0618" y="4" as="geometry">
+            <mxPoint x="-34" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-51" parent="1" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" value="0 . . *" vertex="1">
+          <mxGeometry height="26" width="80" x="530" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-53" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <mxPoint x="600" y="660" as="sourcePoint" />
+            <mxPoint x="600" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-54" edge="1" parent="1" style="html=1;verticalAlign=bottom;endArrow=block;curved=0;rounded=0;" value="">
+          <mxGeometry relative="1" width="80" as="geometry">
+            <Array as="points">
+              <mxPoint x="170" y="660" />
+            </Array>
+            <mxPoint x="170" y="660" as="sourcePoint" />
+            <mxPoint x="170" y="670" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-55" parent="1" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" value="0 . . *" vertex="1">
+          <mxGeometry height="26" width="80" x="90" y="630" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-56" connectable="0" parent="1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1" vertex="1">
+          <mxGeometry x="140" y="585" as="geometry">
+            <mxPoint x="-11" y="-5" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-57" edge="1" parent="1" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;" value="">
+          <mxGeometry relative="1" width="160" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points" />
+            <mxPoint x="170" y="560" as="sourcePoint" />
+            <mxPoint x="170" y="640" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-58" connectable="0" parent="GWlvvtTyz9JugliedSh_-57" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" value="1" vertex="1">
+          <mxGeometry relative="1" x="-0.0618" y="4" as="geometry">
+            <mxPoint x="-34" y="-13" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-59" parent="1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="140" x="100" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-60" parent="1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="140" x="100" y="850" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-61" parent="1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="140" x="530" y="693" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-62" parent="1" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" value="" vertex="1">
+          <mxGeometry height="8" width="140" x="530" y="810" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-64" parent="1" style="text;whiteSpace=wrap;html=1;align=center;" value="&lt;font style=&quot;font-size: 16px;&quot;&gt;&lt;b&gt;SkillsTrack Learner Support Portal – Class Design&lt;/b&gt;&lt;/font&gt;" vertex="1">
+          <mxGeometry height="40" width="300" x="210" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="GWlvvtTyz9JugliedSh_-67" parent="1" style="text;align=center;fontStyle=1;verticalAlign=middle;spacingLeft=3;spacingRight=3;strokeColor=none;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;html=1;" value="&lt;font style=&quot;font-size: 15px;&quot;&gt;Planned classes and relationships for the Learner Support Portal&lt;/font&gt;" vertex="1">
+          <mxGeometry height="26" width="360" x="190" y="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

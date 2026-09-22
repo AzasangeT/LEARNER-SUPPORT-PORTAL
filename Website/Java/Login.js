@@ -69,14 +69,15 @@ loginForm.addEventListener("submit", async (event) => {
             // Redirect based on role
             if (role === "Learner") {
 
-                window.location.href = "Learner_dashboard.html";
+                window.location.href = "Learner_Dashboard.html";
 
             }
             else if (role === "Assessor") {
 
-                window.location.href = "Assessor_dashboard.html";
+                window.location.href = "Assessor_Dashboard.html";
 
             }
+            
             else {
 
                 loginMessage.textContent = "Account Type not recognised.";
@@ -89,7 +90,6 @@ loginForm.addEventListener("submit", async (event) => {
             loginMessage.textContent = "User information could not be found.";
 
         }
-        
 
     }
 
