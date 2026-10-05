@@ -60,6 +60,10 @@
     <main class="main-content">
 
         <header class="app-header">
+           
+            <a href="learner-dashboard.html" class="back-dashboard"> 
+              Back to Dashboard
+            </a>
 
             <h1>Learner Booking</h1>
 
@@ -70,13 +74,167 @@
         </header>
 
 
-        <section class="dashboard-content">
+        <!-- Supporet Request Section -->
+        <section class="support-request-section" id="supportRequestSection"></section>
 
-            <!-- Dashboard content goes here -->
+            <div class="support-request-header">
+
+                <h2>REQUEST SUPPORT </h2>
+
+                <p>Hello Kenneth! How can we help you today? </p>
+            </div>
+
+
+            <!-- Support Request Form -->
+             <form id="supportRequestForm" class="support-request-form">
+
+                <!--Support Topic-->
+                <div class="form-group">
+
+                    <label for="supportTopic">
+                        Support Topic
+                    </label>
+
+                    <select id="supportTopic" required>
+                    
+                        <option value="">
+                            Select Topic
+                        </option>
+
+                        <option value="JavaScript">
+                            JavaScript
+                        </option>
+
+                        <option value="Python">
+                            Python 
+                        </option>
+
+                        <option value="Database">
+                            Database
+                        </option>
+                    
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+                </div>
+
+                <!--Preferred Date-->
+                <div class="form-group">
+
+                    <label for="preferredDate">
+                        Preferred Date 
+                    </label>
+
+                    <input type="date" id="preferredDate" required>
+
+                </div>
+
+
+                <!--Preferred Time-->
+                <div class="form-group">
+                    
+                    <label for="preferredTime">
+                        Preferred Time
+                    </label>
+
+                    <select id="preferredTime" required>
+
+                        <option value="">
+                            Select Time 
+                        </option>
+
+                        <option value="09:00">
+                            09:00
+                        </option>
+
+                        <option value="10:00">
+                            10:00
+                        </option>
+
+                        <option value="11:00">
+                            11:00
+                        </option>
+
+                        <option value="12:00">
+                            12:00
+                        </option>
+
+                        <option value="13:00">
+                            13:00
+                        </option>
+
+                        <option value="14:00">
+                            14:00
+                        </option>
+
+                        <option value="15:00">
+                            15:00
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <!--Description-->
+                <div class="form-group">
+
+                    <label for="supportDescription">
+                        What do you need help with?
+                    </label>
+
+                    <textarea id="supportDescription" rows="7" placeholder="Please explain what you are struggling with......" required></textarea>
+                
+                </div>
+
+                <!--Supporting Documents -->
+                <div class="form-group">
+
+                    <label for="supportDocument">
+                        Upload supporting documents
+                    </label>
+
+                    <input type="file" id="supportDocument">
+                </div>
+
+                <!--Buttons-->
+                <div class="support-request-actions">
+
+                    <button type="button" id="cancelRequestBtn" class="cancel-btn">
+                        Cancel 
+                    </button>
+
+                    <button type="submit" class="submit-request-btn">
+                        Submit Request 
+                    </button>
+
+                </div> 
+
+            </form>
 
         </section>
+        
+        <!--Success Section-->
+        <section class="request-success-section" id="requestSuccessSection" style="display: none;">
 
-    </main>
+            <div class="success-content">
+
+                <div class="success-icon">
+                    ✓
+                </div>
+
+                <h2>Request Submitted!</h2>
+
+                <p>Your support request has been submitted successfully!</p>
+
+                <p> An assessor will review your request.</p>
+
+            <div class="succes-actions">
+
+                <button type="button" id="viewRequestBtn" class="view-request-btn">
+                    View My Request 
+                </button>
 
 </div>
 
@@ -86,5 +244,39 @@
     type="module"
     src="Java/Logout.js">
 </script>
+                <button type="button" id="backDashboardBtn" class="back-dashboard-btn">
+                    Bact to Dashboard 
+                </button>
+
+            </div>
+        
+        </div>
+
+    </section>
+
+            <!--Submitted Request-->
+            <section class="submitted-request-section" id="submittedRequestSection" style="display: none;">
+
+                <div class="submitted-request-header">
+
+                    <h2>My Support Request</h2>
+
+                    <p>Here are the details for your submitted request.</p>
+
+                </div>
+
+                <div id="submittedRequestDetails">
+                    <!--JavaScript will display the request here -->
+
+                </div>
+
+                <button type="button" id="reuestBackDashboardBtn" class="back-dashboard-btn">
+                    Back to Dashboard
+                </button>
+
+            </section>
+
+    </main>
+   <script type="module" src="Java/Learner_Booking.js"></script>
 </body>
 </html>
