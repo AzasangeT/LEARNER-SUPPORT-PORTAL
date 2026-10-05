@@ -1,92 +1,302 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="SRC/stylesheet.css">
-    <title>Learner_Progress</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="stylesheet"
+        href="SRC/stylesheet.css"
+    >
+
+    <title>Learner Progress</title>
+
 </head>
+
+
 <body>
-    <!-- Sidebar -->
-    <aside class="sidebar">
 
-        <div class="sidebar-logo">
-            Skills Track
-        </div>
-
-        <nav class="sidebar-nav">
-
-            <a href="Learner_Dashboard.html" class="active">
-                Dashboard
-            </a>
-
-            <a href="Learner_Progress.html">
-                Progress
-            </a>
-
-            <a href="Learner_Task.html">
-                Tasks
-            </a>
-
-            <a href="Learner_Booking.html">
-                Booking
-            </a>
-
-            <a href="Learner_Progress.html">
-                Learner Resources
-            </a>
-
-            <a href="Learner_Game.html">
-                Game
-            </a>
-
-        <div class="sidebar-bottom">
-
-           <button
-                  type="button"
-                  id="logoutBtn"
-                  class="logout-btn"
-                >
-               Logout
-           </button>
-
-        </div>
-
-    </aside>
+    <div class="app-layout">
 
 
-    <!-- Main Application -->
-    <main class="main-content">
+        <!-- =========================================
+             SIDEBAR
+        ========================================= -->
 
-        <header class="app-header">
+        <aside class="sidebar">
 
-            <h1>Dashboard</h1>
-
-            <div class="user-area">
-                Welcome, Kenneth
+            <div class="sidebar-logo">
+                Skills Track
             </div>
 
-        </header>
+
+            <nav class="sidebar-nav">
+
+                <a href="Learner_Dashboard.html">
+                    Dashboard
+                </a>
+
+                <a
+                    href="Learner_Progress.html"
+                    class="active"
+                >
+                    Progress
+                </a>
+
+                <a href="Learner_Task.html">
+                    Tasks
+                </a>
+
+                <a href="Learner_Booking.html">
+                    Booking
+                </a>
+
+                <a href="Learner_Resources.html">
+                    Learner Resources
+                </a>
+
+                <a href="Learner_Game.html">
+                    Game
+                </a>
+
+            </nav>
 
 
-        <section class="dashboard-content">
+            <!-- Logout -->
 
-            <!-- Dashboard content goes here -->
+            <div class="sidebar-bottom">
 
-        </section>
+                <button
+                    type="button"
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    Logout
+                </button>
 
-    </main>
+            </div>
 
-</div>
-
-
+        </aside>
 
 
-<script
-    type="module"
-    src="Java/Logout.js">
-</script>
+        <!-- =========================================
+             MAIN APPLICATION
+        ========================================= -->
+
+        <main class="main-content">
+
+
+            <!-- Header -->
+
+            <header class="app-header">
+
+                <h1>
+                    Progress
+                </h1>
+
+                <div class="user-area">
+
+                    Welcome,
+                    <span id="learnerName">
+                        Learner
+                    </span>
+
+                </div>
+
+            </header>
+
+
+            <!-- =====================================
+                 PROGRESS CONTENT
+            ====================================== -->
+
+            <section class="dashboard-content">
+
+
+                <!-- Page Heading -->
+
+                <div class="progress-page-header">
+
+                    <div>
+
+                        <h2>
+                            My Progress
+                        </h2>
+
+                        <p>
+                            Track your learning progress and task completion.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     PROGRESS SUMMARY
+                ================================== -->
+
+                <div class="progress-summary-grid">
+
+
+                    <!-- Overall Progress -->
+
+                    <div class="progress-summary-card">
+
+                        <h3>
+                            Overall Progress
+                        </h3>
+
+                        <div
+                            class="progress-percentage"
+                            id="overallProgress"
+                        >
+                            0%
+                        </div>
+
+                        <div class="progress-bar">
+
+                            <div
+                                class="progress-bar-fill"
+                                id="progressBarFill"
+                            >
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Total Tasks -->
+
+                    <div class="progress-summary-card">
+
+                        <h3>
+                            Total Tasks
+                        </h3>
+
+                        <div
+                            class="progress-stat-number"
+                            id="totalTasks"
+                        >
+                            0
+                        </div>
+
+                        <p>
+                            Learning tasks
+                        </p>
+
+                    </div>
+
+
+                    <!-- Completed Tasks -->
+
+                    <div class="progress-summary-card">
+
+                        <h3>
+                            Completed
+                        </h3>
+
+                        <div
+                            class="progress-stat-number"
+                            id="completedTasks"
+                        >
+                            0
+                        </div>
+
+                        <p>
+                            Tasks completed
+                        </p>
+
+                    </div>
+
+
+                    <!-- Outstanding Tasks -->
+
+                    <div class="progress-summary-card">
+
+                        <h3>
+                            Outstanding
+                        </h3>
+
+                        <div
+                            class="progress-stat-number"
+                            id="outstandingTasks"
+                        >
+                            0
+                        </div>
+
+                        <p>
+                            Tasks remaining
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     TASK PROGRESS DETAILS
+                ================================== -->
+
+                <div class="progress-details-section">
+
+                    <div class="progress-section-header">
+
+                        <div>
+
+                            <h2>
+                                Task Progress
+                            </h2>
+
+                            <p>
+                                Your current learning task status.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="progress-task-list"
+                        id="progressTaskList"
+                    >
+
+                        <p class="task-empty-message">
+                            Loading your progress...
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+
+    <script
+        type="module"
+        src="Java/Learner_Progress.js"
+    ></script>
+
+    <script
+        type="module"
+        src="Java/Logout.js"
+    ></script>
 
 
 </body>
+
 </html>
