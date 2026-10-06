@@ -64,4 +64,26 @@ viewRequestBtn.addEventListener("click", function(){
   }
 });
 
+// Cancel Request Button 
 
+cancelRequestBtn.addEventListener("click", function(){
+    
+    supportRequestForm.reset();
+
+});
+
+// Back to dashboard from success screen 
+
+backDashboardBtn.addEventListener("click", function(){
+
+    <a href="learner-dashboard.html">Back to Dashboard</a>
+
+})
+
+//Back to dashboard from request details
+
+requestBackDashboardBtn.addEventListener("click", function() {
+
+    <a href="learner-dashboard.html">Back to Dashboard </a>
+
+});
