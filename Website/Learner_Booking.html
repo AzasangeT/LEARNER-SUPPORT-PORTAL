@@ -55,7 +55,7 @@
 
         <header class="app-header">
            
-            <a href="learner-dashboard.html" class="back-dashboard"> 
+            <a href="Learner-Dashboard.html" class="back-dashboard"> 
               Back to Dashboard
             </a>
 
@@ -209,22 +209,6 @@
 
         </section>
         
-        <!--Success Section-->
-        <section class="request-success-section" id="requestSuccessSection" style="display: none;">
-
-            <div class="success-content">
-
-                <div class="success-icon">
-                    ✓
-                </div>
-
-                <h2>Request Submitted!</h2>
-
-                <p>Your support request has been submitted successfully!</p>
-
-                <p> An assessor will review your request.</p>
-
-            <div class="succes-actions">
 
                 <button type="button" id="viewRequestBtn" class="view-request-btn">
                     View My Request 
@@ -261,6 +245,16 @@
                 </button>
 
             </section>
+
+            <div id="successPopup" class="success-popup">
+                <div class="popup-content">
+                    <div class="popup-icon">&#10003;</div>
+                    <h2>Booking Submitted!</h2>
+                    <p>Your booking has been submitted successfully!</p>
+                    <p>An assessor will review your booking</p>
+                    <button id="closePopupBtn">OK</button>
+                </div>
+            </div>
 
     </main>
    <script type="module" src="Java/Learner_Booking.js"></script>
