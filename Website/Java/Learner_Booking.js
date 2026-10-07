@@ -1,105 +1,174 @@
-//BOOKING FORM 
-const supportRequestForm = document.getElementById("supportRequestForm");
+
+
+// 1. GET ELEMENTS FROM THE HTML
+
+// Booking form
+const bookingSection = document.getElementById("bookingSection");
+
+// Form inputs
 const supportTopic = document.getElementById("supportTopic");
 const preferredDate = document.getElementById("preferredDate");
 const preferredTime = document.getElementById("preferredTime");
-const supportDescription = document.getElementById("supportDescription");
-const supportDocument = document.getElementById("supportDocument");
+const helpDescription = document.getElementById("helpDescription");
+const supportingDocument = document.getElementById("supportingDocument");
 
-//SECTIONS 
+// Buttons
+const cancelButton = document.getElementById("cancelButton");
+const submitRequest = document.getElementById("submitRequest");
 
-const supportRequestSection = document.getElementById("supportRequestSection");
-const submittedRequestSection = document.getElementById("submittedRequestSection");
-const requestSuccessSection = document.getElementById("requestSuccessSection");
-const submittedRequestDetails = document.getElementById("submittedRequestDetails");
- 
-// BUTTONS 
-const cancelRequestBtn = document.getElementById("cancelRequestBtn");
-const viewRequestBtn = document.getElementById("viewRequestBtn");
-const backDashboardBtn = document.getElementById("backDashboardBtn");
-const closePopupBtn = document.getElementById("closePopupBtn");
-
-// POPUP 
+// Success popup
 const successPopup = document.getElementById("successPopup");
+const viewRequestButton = document.getElementById("viewRequestButton");
+const successDashboardButton = document.getElementById("successDashboardButton");
 
-// STORE REQUEST 
-let supportRequest = {};
+// View request section
+const viewRequestSection = document.getElementById("viewRequestSection");
+const requestBackDashboard = document.getElementById("requestBackDashboard");
 
-// SUBMIT REQUEST 
-supportRequestForm.addEventListener("submit", function(event){
-    event.preventDefault();
+// Learner name
+const learnerName = document.getElementById("learnerName");
+const loggedInUser = document.getElementById("loggedInUser");
+
+// Request information
+const requestLearner = document.getElementById("requestLearner");
+const requestTopic = document.getElementById("requestTopic");
+const requestDate = document.getElementById("requestDate");
+const requestTime = document.getElementById("requestTime");
+const requestDescription = document.getElementById("requestDescription");
+const requestDocument = document.getElementById("requestDocument");
+
+
+// 2. LEARNER NAME
+
+
+// For now, we are using Azasange.
+// Later we can connect this to Firebase
+// so the name comes from the logged-in user.
+
+const currentLearner = "Azasange";
+
+learnerName.textContent = currentLearner;
+loggedInUser.textContent = currentLearner;
+
+
+// 3. SUBMIT REQUEST
+
+
+submitRequest.addEventListener("click", function () {
+
+    // Check if all required fields have been completed
+
+    if (
+        supportTopic.value === "" ||
+        preferredDate.value === "" ||
+        preferredTime.value === "" ||
+        helpDescription.value.trim() === ""
+    ) {
+
+        alert("Please complete all required fields before submitting.");
+
+        return;
+    }
+
+
     
-    supportRequest = {
-        topic: supportTopic.value,
-        date: preferredDate.value,
-        time: preferredTime.value,
-        description: supportDescription.value,
-        document: supportDocument.files[0] || null
-    };
+    // 4. SAVE THE REQUEST INFORMATION
+    
 
-    console.log(supportRequest);
+    requestLearner.textContent = currentLearner;
 
-    //SHOW POPUP 
-    successPopup.style.display = "Flex";
+    requestTopic.textContent = supportTopic.value;
+
+    requestDate.textContent = preferredDate.value;
+
+    requestTime.textContent = preferredTime.value;
+
+    requestDescription.textContent = helpDescription.value;
+
+
+    // Check if a document was uploaded
+
+    if (supportingDocument.files.length > 0) {
+
+        requestDocument.textContent =
+            supportingDocument.files[0].name;
+
+    } else {
+
+        requestDocument.textContent =
+            "No document uploaded";
+
+    }
+
+
+    // 5. SHOW SUCCESS POPUP
+    
+
+    successPopup.style.display = "flex";
 
 });
-   
-// CLOSE POPUP 
-closePopupBtn.addEventListener("click", function() {
+
+
+// 6. VIEW MY REQUEST
+
+
+viewRequestButton.addEventListener("click", function () {
+
+    // Hide the success popup
+
     successPopup.style.display = "none";
-    supportRequestSection.style.display = "none";
-    requestSuccessSection.style.display = "block";
-});
 
-//VIEW REQUEST DETAILS 
 
-viewRequestBtn.addEventListener("click", function(){
+    // Hide the booking form
 
-    requestSuccessSection.style.display = "none";
+    bookingSection.style.display = "none";
 
-    submittedRequestSection.style.display = "block";
-});
-    
-    closePopupBtn.addEventListener("click", function(){
-        successPopup.style.display = "none";
-        supportRequestSection.style.display = "none";
-        submittedRequestSection.style.display = "block";
-    
-    submittedRequestDetails.innerHTML = 
-    "<p>Support Topic: " + supportRequest.topic + "</p>" +
-    "<p>Preferred Date: " + supportRequest.date + "</p>" +
-    "<p>Preferred Time: " + supportRequest.time + "</p>" +
-    "<p>What do you need help with? " + supportRequest.document.name + "</p>";
 
-    if (supportRequest.document) {
-    submittedRequestDetails.innerHTML +=
-        "<p>Supporting Document: " + supportRequest.document.name + "</p>";
-    } else { 
-         submittedRequestDetails.innerHTML += 
-         "<p>Supporting Document: No document uploaded </p>";
-  }
-});
+    // Show the request details
 
-// CANCEL REQUEST  
-
-cancelRequestBtn.addEventListener("click", function(){
-    
-    supportRequestForm.reset();
+    viewRequestSection.style.display = "block";
 
 });
 
-// Back to dashboard from success screen 
 
-backDashboardBtn.addEventListener("click", function(){
 
-    <a href="Learner_Dashboard.html">Back to Dashboard</a>
+// 7. BACK TO DASHBOARD FROM POPUP
 
-})
 
-//Back to dashboard from request details
+successDashboardButton.addEventListener("click", function () {
 
-requestBackDashboardBtn.addEventListener("click", function() {
-
-    <a href="Learner_Dashboard.html">Back to Dashboard </a>
+    window.location.href = "learner-dashboard.html";
 
 });
+
+
+
+// 8. BACK TO DASHBOARD FROM REQUEST
+
+
+requestBackDashboard.addEventListener("click", function () {
+
+    window.location.href = "learner-dashboard.html";
+
+});
+
+
+// 9. CANCEL BUTTON
+
+
+cancelButton.addEventListener("click", function () {
+
+    // Clear the form
+
+    supportTopic.value = "";
+
+    preferredDate.value = "";
+
+    preferredTime.value = "";
+
+    helpDescription.value = "";
+
+    supportingDocument.value = "";
+
+});
+

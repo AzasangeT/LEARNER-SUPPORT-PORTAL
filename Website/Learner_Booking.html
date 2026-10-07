@@ -1,23 +1,30 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="SRC/stylesheet.css">
-    <title>Learner_Booking</title>
+
+    <title>Learner Booking</title>
 </head>
+
 <body>
-    
-    <!-- Sidebar -->
+
+    <!--SIDE BAR-->
+
     <aside class="sidebar">
 
         <div class="sidebar-logo">
             Skills Track
         </div>
 
+
         <nav class="sidebar-nav">
 
-            <a href="learner-dashboard.html" class="active">
+            <a href="Learner_Dashboard.html">
                 Dashboard
             </a>
 
@@ -25,19 +32,20 @@
                 Progress
             </a>
 
-            <a href="Learner_Progress.html">
+            <a href="Learner_Tasks.html">
                 Tasks
             </a>
 
-            <a href="Learner_Progress.html">
+            <a href="Learner_Resources.html">
                 Learner Resources
             </a>
 
-            <a href="settings.html">
+            <a href="Learner_Game.html">
                 Game
             </a>
 
         </nav>
+
 
         <div class="sidebar-bottom">
 
@@ -50,47 +58,87 @@
     </aside>
 
 
-    <!-- Main Application -->
+
+    <!--MAIN CONTENT-->
+
     <main class="main-content">
 
+
+        <!-- HEADER -->
+
         <header class="app-header">
-           
-            <a href="Learner-Dashboard.html" class="back-dashboard"> 
-              Back to Dashboard
-            </a>
 
             <h1>Learner Booking</h1>
 
             <div class="user-area">
-                Welcome, Kenneth
+
+                Welcome,
+                <span id="loggedInUser">
+                    Azasange
+                </span>
+
             </div>
 
         </header>
 
 
-        <!-- Supporet Request Section -->
-        <section class="support-request-section" id="supportRequestSection"></section>
 
-            <div class="support-request-header">
+        <!--BOOKING CONTENT-->
 
-                <h2>REQUEST SUPPORT </h2>
-
-                <p>Hello Kenneth! How can we help you today? </p>
-            </div>
+        <section class="dashboard-content">
 
 
-            <!-- Support Request Form -->
-             <form id="supportRequestForm" class="support-request-form">
+            <!-- BACK TO DASHBOARD -->
 
-                <!--Support Topic-->
+            <a
+                href="Learner_Dashboard.html"
+                class="back-button"
+            >
+                ← Back to Dashboard
+            </a>
+
+
+
+            <!--REQUEST SUPPORT FORM-->
+
+            <div
+                id="bookingSection"
+                class="booking-container"
+            >
+
+                <h2>
+                    REQUEST SUPPORT
+                </h2>
+
+
+                <!-- GREETING -->
+
+                <p class="booking-greeting">
+
+                    Hello
+                    <span id="learnerName">
+                        Azasange
+                    </span>!
+
+                    How can we help you today?
+
+                </p>
+
+
+
+                <!--SUPPORT TOPIC-->
+
                 <div class="form-group">
 
                     <label for="supportTopic">
+
                         Support Topic
+
                     </label>
 
-                    <select id="supportTopic" required>
-                    
+
+                    <select id="supportTopic">
+
                         <option value="">
                             Select Topic
                         </option>
@@ -100,43 +148,67 @@
                         </option>
 
                         <option value="Python">
-                            Python 
+                            Python
                         </option>
 
-                        <option value="Database">
-                            Database
+                        <option value="HTML and CSS">
+                            HTML and CSS
                         </option>
-                    
+
+                        <option value="Firebase">
+                            Firebase
+                        </option>
+
+                        <option value="Git and GitHub">
+                            Git and GitHub
+                        </option>
+
                         <option value="Other">
                             Other
                         </option>
 
                     </select>
+
                 </div>
 
-                <!--Preferred Date-->
+
+
+                <!--PREFERRED DATE-->
+
                 <div class="form-group">
 
                     <label for="preferredDate">
-                        Preferred Date 
+
+                        Preferred Date
+
                     </label>
 
-                    <input type="date" id="preferredDate" required>
+
+                    <input
+                        type="date"
+                        id="preferredDate"
+                        name="preferredDate"
+                    >
 
                 </div>
 
 
-                <!--Preferred Time-->
+
+                <!--PREFERRED TIME-->
+
                 <div class="form-group">
-                    
+
                     <label for="preferredTime">
+
                         Preferred Time
+
                     </label>
 
-                    <select id="preferredTime" required>
+
+                    <select id="preferredTime">
 
                         <option value="">
-                            Select Time 
+                            Select time
                         </option>
 
                         <option value="09:00">
@@ -167,96 +239,314 @@
                             15:00
                         </option>
 
+                        <option value="16:00">
+                            16:00
+                        </option>
+
                     </select>
 
                 </div>
 
-                <!--Description-->
+
+
+                <!--HELP DESCRIPTION-->
+
                 <div class="form-group">
 
-                    <label for="supportDescription">
+                    <label for="helpDescription">
+
+                        What do you need help with ?
+
+                    </label>
+
+
+                    <textarea
+                        id="helpDescription"
+                        rows="5"
+                        placeholder="Please explain what you are struggling with ..."
+                    ></textarea>
+
+                </div>
+
+
+
+                <!--DOCUMENT UPLOAD-->
+
+                <div class="form-group">
+
+                    <label for="supportingDocument">
+
+                        Upload supporting documents (OPTIONAL)
+
+                    </label>
+
+
+                    <input
+                        type="file"
+                        id="supportingDocument"
+                    >
+
+                </div>
+
+
+
+                <!--FORM BUTTONS-->
+
+                <div class="booking-buttons">
+
+
+                    <!-- CANCEL -->
+
+                    <button
+                        type="button"
+                        id="cancelButton"
+                        class="cancel-button"
+                    >
+
+                        Cancel
+
+                    </button>
+
+
+
+                    <!-- SUBMIT -->
+
+                    <button
+                        type="button"
+                        id="submitRequest"
+                        class="submit-button"
+                    >
+
+                        Submit Request
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!--SUCCESS POPUP-->
+
+            <div
+                id="successPopup"
+                class="success-popup"
+                style="display: none;"
+            >
+
+
+                <div class="success-popup-content">
+
+
+                    <!-- SUCCESS ICON -->
+
+                    <div class="success-icon">
+
+                        ✓
+
+                    </div>
+
+
+
+                    <!-- SUCCESS MESSAGE -->
+
+                    <h2>
+
+                        Request Submitted!
+
+                    </h2>
+
+
+                    <p>
+
+                        Your support request has been
+                        submitted successfully!
+
+                    </p>
+
+
+                    <p>
+
+                        An assessor will review
+                        your request.
+
+                    </p>
+
+
+
+                    <!-- SUCCESS SECTION -->
+
+                    <div class="success-buttons">
+
+
+                        <!-- VIEW REQUEST -->
+
+                        <button
+                            type="button"
+                            id="viewRequestButton"
+                            class="view-request-button"
+                        >
+
+                            View My Request
+
+                        </button>
+
+
+
+                        <!-- BACK TO DASHBOARD -->
+
+                        <button
+                            type="button"
+                            id="successDashboardButton"
+                            class="back-button"
+                        >
+
+                            Back to Dashboard
+
+                        </button>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!--VIEW MY REQUEST-->
+
+            <div
+                id="viewRequestSection"
+                class="request-details"
+                style="display: none;"
+            >
+
+
+                <h2>
+
+                    My Support Request
+
+                </h2>
+
+
+
+                <!-- LEARNER -->
+
+                <p>
+
+                    <strong>
+                        Learner:
+                    </strong>
+
+                    <span id="requestLearner">
+                    </span>
+
+                </p>
+
+
+
+                <!-- TOPIC -->
+
+                <p>
+
+                    <strong>
+                        Support Topic:
+                    </strong>
+
+                    <span id="requestTopic">
+                    </span>
+
+                </p>
+
+
+
+                <!-- DATE -->
+
+                <p>
+
+                    <strong>
+                        Preferred Date:
+                    </strong>
+
+                    <span id="requestDate">
+                    </span>
+
+                </p>
+
+
+
+                <!-- TIME -->
+
+                <p>
+
+                    <strong>
+                        Preferred Time:
+                    </strong>
+
+                    <span id="requestTime">
+                    </span>
+
+                </p>
+
+
+
+                <!-- DESCRIPTION -->
+
+                <p>
+
+                    <strong>
                         What do you need help with?
-                    </label>
+                    </strong>
 
-                    <textarea id="supportDescription" rows="7" placeholder="Please explain what you are struggling with......" required></textarea>
-                
-                </div>
+                </p>
 
-                <!--Supporting Documents -->
-                <div class="form-group">
 
-                    <label for="supportDocument">
-                        Upload supporting documents
-                    </label>
+                <p id="requestDescription">
+                </p>
 
-                    <input type="file" id="supportDocument">
-                </div>
 
-                <!--Buttons-->
-                <div class="support-request-actions">
 
-                    <button type="button" id="cancelRequestBtn" class="cancel-btn">
-                        Cancel 
-                    </button>
+                <!-- DOCUMENT -->
 
-                    <button type="submit" class="submit-request-btn">
-                        Submit Request 
-                    </button>
+                <p>
 
-                </div> 
+                    <strong>
+                        Supporting Document:
+                    </strong>
 
-            </form>
+                    <span id="requestDocument">
+                    </span>
+
+                </p>
+
+
+
+                <!-- BACK TO DASHBOARD -->
+
+                <button
+                    type="button"
+                    id="requestBackDashboard"
+                    class="back-button"
+                >
+
+                    Back to Dashboard
+
+                </button>
+
+
+            </div>
 
         </section>
-        
-
-                <button type="button" id="viewRequestBtn" class="view-request-btn">
-                    View My Request 
-                </button>
-
-                <button type="button" id="backDashboardBtn" class="back-dashboard-btn">
-                    Bact to Dashboard 
-                </button>
-
-            </div>
-        
-        </div>
-
-    </section>
-
-            <!--Submitted Request-->
-            <section class="submitted-request-section" id="submittedRequestSection" style="display: none;">
-
-                <div class="submitted-request-header">
-
-                    <h2>My Support Request</h2>
-
-                    <p>Here are the details for your submitted request.</p>
-
-                </div>
-
-                <div id="submittedRequestDetails">
-                    <!--JavaScript will display the request here -->
-
-                </div>
-
-                <button type="button" id="reuestBackDashboardBtn" class="back-dashboard-btn">
-                    Back to Dashboard
-                </button>
-
-            </section>
-
-            <div id="successPopup" class="success-popup">
-                <div class="popup-content">
-                    <div class="popup-icon">&#10003;</div>
-                    <h2>Booking Submitted!</h2>
-                    <p>Your booking has been submitted successfully!</p>
-                    <p>An assessor will review your booking</p>
-                    <button id="closePopupBtn">OK</button>
-                </div>
-            </div>
 
     </main>
-   <script type="module" src="Java/Learner_Booking.js"></script>
+
+
+    <!--script src="Java/Learner_Booking.js"></script-->
+
 </body>
+
 </html>
+
