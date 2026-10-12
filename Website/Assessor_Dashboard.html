@@ -1,24 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src">
-    <title>Assessor_Dashboard</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="SRC/stylesheet.css">
-    <title>Learner_Dashboard</title>
-</head>
-<body>
-    <div class="app-layout">
 
-    <!-- Sidebar -->
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <link
+        rel="stylesheet"
+        href="SRC/stylesheet.css"
+    >
+
+    <title>Assessor Dashboard | Skills Track</title>
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================= -->
+
     <aside class="sidebar">
 
         <div class="sidebar-logo">
@@ -43,11 +49,11 @@
                 Booking
             </a>
 
-            <a href="Learner_Progress.html">
+            <a href="Assessor_Resources.html">
                 Documents
             </a>
 
-            <a href="Learner_Game.html">
+            <a href="Assessor_Game.html">
                 Game
             </a>
 
@@ -55,39 +61,210 @@
 
         <div class="sidebar-bottom">
 
-            <a href="#" class="logout-link">
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
                 Logout
-            </a>
+            </button>
 
         </div>
 
     </aside>
 
 
-    <!-- Main Application -->
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================= -->
+
     <main class="main-content">
+
+        <!-- Header -->
 
         <header class="app-header">
 
             <h1>Assessor Dashboard</h1>
 
             <div class="user-area">
-                Welcome, Assessor
+
+                Welcome,
+
+                <span id="assessorName">
+                    Loading...
+                </span>
+
             </div>
 
         </header>
 
 
+        <!-- Dashboard Content -->
+
         <section class="dashboard-content">
 
-            <!-- Dashboard content goes here -->
+
+            <!-- =====================================
+                 SUMMARY CARDS
+            ====================================== -->
+
+            <div class="dashboard-summary">
+
+                <div class="summary-card">
+
+                    <h3>Total Learners</h3>
+
+                    <p id="totalLearners">—</p>
+
+                    <span>Registered learners</span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>Total Tasks</h3>
+
+                    <p id="totalTasks">—</p>
+
+                    <span>All learner tasks</span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>Outstanding Tasks</h3>
+
+                    <p id="outstandingTasks">—</p>
+
+                    <span>Tasks requiring attention</span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>Support Requests</h3>
+
+                    <p id="supportRequests">—</p>
+
+                    <span id="supportRequestText">
+                        Not connected yet
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 LEARNER PROGRESS
+            ====================================== -->
+
+            <div class="dashboard-section">
+
+                <div class="section-header">
+
+                    <h2>Learner Progress</h2>
+
+                    <a href="Assessor_Progress.html">
+                        View All
+                    </a>
+
+                </div>
+
+                <div
+                    id="learnerProgressList"
+                    class="assessor-learner-list"
+                >
+
+                    <p class="task-empty-message">
+                        Loading learner progress...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 OUTSTANDING TASKS
+            ====================================== -->
+
+            <div class="dashboard-section">
+
+                <div class="section-header">
+
+                    <h2>Outstanding Tasks</h2>
+
+                    <a href="Assessor_Task.html">
+                        View All
+                    </a>
+
+                </div>
+
+                <div
+                    id="assessorTaskList"
+                    class="task-list"
+                >
+
+                    <p class="task-empty-message">
+                        Loading outstanding tasks...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 SUPPORT REQUESTS
+            ====================================== -->
+
+            <div class="dashboard-section">
+
+                <div class="section-header">
+
+                    <h2>Recent Support Requests</h2>
+
+                    <a href="Assessor_Booking.html">
+                        View Requests
+                    </a>
+
+                </div>
+
+                <div id="supportRequestList">
+
+                    <p class="task-empty-message">
+                        Support requests will appear here
+                        once the Booking feature is connected.
+                    </p>
+
+                </div>
+
+            </div>
 
         </section>
 
     </main>
 
 </div>
-</body>
-</html>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script
+    type="module"
+    src="Java/Assessor_Dashboard.js">
+</script>
+
+<script
+    type="module"
+    src="Java/Logout.js">
+</script>
+
 </body>
 </html>
