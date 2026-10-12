@@ -2409,7 +2409,7 @@ textarea:focus {
     font-size: 14px;
     line-height: 1.6;
 }
-<<<<<<< HEAD
+
 
 /* SUCCESS POPUP */
 
@@ -2493,7 +2493,8 @@ textarea:focus {
     z-index: 2;
 
     pointer-events: auto;
-=======
+}
+
 /* =========================================
    LEARNER PROGRESS PAGE
    ========================================= */
@@ -3511,7 +3512,7 @@ textarea:focus {
     .resource-grid {
         grid-template-columns: 1fr;
     }
->>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
+
 }
 
 
@@ -3613,4 +3614,258 @@ textarea:focus {
     .game-card {
         padding: 25px 12px;
     }
+}
+
+
+/* CODE WORD SCRAMBLE GAME */
+
+.game-container {
+    max-width: 750px;
+    margin: 40px auto;
+    padding: 30px;
+    font-family: Arial, sans-serif;
+    color: #ffffff;
+    background: linear-gradient(135deg, #11152e, #211344);
+    border-radius: 24px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+}
+
+.back-button {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #c4b5fd;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.game-container h1 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.game-description {
+    text-align: center;
+    color: #c4c5df;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.score-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.score-section p {
+    flex: 1;
+    margin: 0;
+    padding: 15px;
+    text-align: center;
+    background: #29204c;
+    border: 1px solid #59449b;
+    border-radius: 12px;
+    color: #d8ccff;
+    font-weight: bold;
+}
+
+#score,
+#wordNumber {
+    color: #a78bfa;
+    font-size: 20px;
+}
+
+.game-card {
+    padding: 35px 25px;
+    text-align: center;
+    background: linear-gradient(145deg, #242044, #191831);
+    border: 1px solid #51417f;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(139, 92, 246, 0.12);
+}
+
+#scrambledWord {
+    margin: 15px 0 25px;
+    color: #c4b5fd;
+    font-size: 40px;
+    letter-spacing: 7px;
+    overflow-wrap: anywhere;
+    text-shadow: 0 0 15px rgba(167, 139, 250, 0.35);
+}
+
+#hint {
+    color: #d2cfe8;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+#answerInput {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 20px;
+    padding: 15px;
+    color: #ffffff;
+    background: #111329;
+    border: 1px solid #6551a5;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+}
+
+#answerInput::placeholder {
+    color: #9291b2;
+}
+
+#answerInput:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 12px rgba(167, 139, 250, 0.25);
+}
+
+#feedback {
+    min-height: 24px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.game-card button {
+    padding: 13px 22px;
+    margin: 6px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.game-card button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(139, 92, 246, 0.35);
+}
+
+.game-card button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.game-card button[hidden] {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        margin: 15px;
+        padding: 20px 15px;
+    }
+
+    .game-container h1 {
+        font-size: 26px;
+    }
+
+    #scrambledWord {
+        font-size: 28px;
+        letter-spacing: 4px;
+    }
+
+    .game-card {
+        padding: 25px 15px;
+    }
+
+    .score-section p {
+        padding: 12px 6px;
+    }
+}
+
+#timer {
+    color: #fbbf24;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+#timer.time-running-out {
+    color: #fb7185;
+    animation: timerPulse 0.7s infinite alternate;
+}
+
+@keyframes timerPulse {
+    from {
+        opacity: 1;
+    }
+    
+    to {
+        opacity: 0.45;
+    }
+}
+
+
+/* RESULTS SCREEN */
+
+#resultsScreen {
+    margin-top: 25px;
+    padding: 30px 20px;
+    text-align: center;
+    background: linear-gradient(145deg, #242044, #191831);
+    border: 1px solid #6551a5;
+    border-radius: 20px;
+    color: #ffffff;
+}
+
+#resultsScreen h2 {
+    color: #c4b5fd;
+    font-size: 28px;
+}
+
+.result-card {
+    margin: 25px auto;
+    padding: 20px;
+    max-width: 300px;
+    background: #29204c;
+    border: 1px solid #6551a5;
+    border-radius: 15px;
+}
+
+.result-card p {
+    color: #d2cfe8;
+}
+
+.result-card h1 {
+    color: #a78bfa;
+    font-size: 38px;
+}
+
+#performanceMessage {
+    color: #d2cfe8;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+#resultsScreen button {
+    padding: 13px 22px;
+    color: white;
+    background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#resultsScreen .back-button {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.game-container #resultsScreen[hidden] {
+    display: none;
+}
+
+.game-container .game-card[hidden] {
+    display: none;
 }

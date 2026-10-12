@@ -24,6 +24,7 @@
         </p>
 
         <div class="score-section">
+            <p>Time: <span id="timer">60</span></p>
             <p>Score: <span id="score">0</span></p>
             <p>Word: <span id="wordNumber">1</span></p>
         </div>
@@ -53,9 +54,31 @@
 
         </div>
 
+<!-- RESULTS SCREEN -->
+<div id="resultsScreen" hidden>
+    <h2>🏆 Game Complete!</h2>
+
+    <p id="resultMessage">Well done!</p>
+
+    <div class="result-card">
+        <p>Your Final Score</p>
+        <h1><span id="finalScore">0</span> / 100</h1>
     </div>
 
-    <script src="SRC/Learner_Game.js"></script>
+    <p id="performanceMessage"></p>
+
+    <button id="resultsPlayAgain">Play Again</button>
+
+    <a href="Learner_Dashboard.html" class="back-button">
+        Back to Dashboard
+    </a>
+</div>
+
+
+    </div>
+
+
+    <script src="Java/Learner_Game.js"></script>
 
 </body>
 </html>

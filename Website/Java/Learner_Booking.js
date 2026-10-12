@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-
 
 // 1. GET ELEMENTS FROM THE HTML
 
@@ -173,7 +171,7 @@ cancelButton.addEventListener("click", function () {
 
 });
 
-=======
+
 // =========================================
 // SKILLS TRACK - LEARNER BOOKINGS
 // =========================================
@@ -602,4 +600,4 @@ document.getElementById("newRequestBtn")
 
 document.getElementById("refreshMyBookingsBtn")
     .addEventListener("click", loadMyBookings);
->>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
+
