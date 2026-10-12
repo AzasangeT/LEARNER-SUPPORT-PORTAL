@@ -1,13 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="SRC/stylesheet.css">
-    <title>Assessor Task</title>
+
+    <title>Assessor Tasks | Skills Track</title>
 </head>
+
 <body>
-    <!-- Sidebar -->
+
+<div class="app-layout">
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================= -->
+
     <aside class="sidebar">
 
         <div class="sidebar-logo">
@@ -16,27 +27,27 @@
 
         <nav class="sidebar-nav">
 
-            <a href="Assessor_Dashboard.html" class="active">
+            <a href="Assessor_Dashboard.html">
                 Dashboard
             </a>
 
-            <a href="Learner_Progress.html">
+            <a href="Assessor_Progress.html">
                 Progress
             </a>
 
-            <a href="Learner_Progress.html">
+            <a href="Assessor_Task.html" class="active">
                 Tasks
             </a>
 
-            <a href="Learner_Booking.html">
+            <a href="Assessor_Booking.html">
                 Booking
             </a>
 
-            <a href="Learner_Progress.html">
-                Learner Resources
+            <a href="Assessor_Resources.html">
+                Documents
             </a>
 
-            <a href="settings.html">
+            <a href="Assessor_Game.html">
                 Game
             </a>
 
@@ -44,24 +55,32 @@
 
         <div class="sidebar-bottom">
 
-            <a href="#" class="logout-link">
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
                 Logout
-            </a>
+            </button>
 
         </div>
 
     </aside>
 
 
-    <!-- Main Application -->
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================= -->
+
     <main class="main-content">
 
         <header class="app-header">
 
-            <h1>Assessor Task</h1>
+            <h1>Assessor Tasks</h1>
 
             <div class="user-area">
-                Welcome, Kenneth
+                Welcome,
+                <span id="assessorName">Loading...</span>
             </div>
 
         </header>
@@ -69,13 +88,199 @@
 
         <section class="dashboard-content">
 
-            <!-- Dashboard content goes here -->
-             
+            <!-- =====================================
+                 PAGE INTRODUCTION
+            ====================================== -->
+
+            <div class="assessor-task-heading">
+
+                <div>
+                    <h2>Learner Task Management</h2>
+
+                    <p>
+                        Monitor learner tasks, track completion
+                        and identify outstanding work.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    id="refreshTasksBtn"
+                    class="assessor-refresh-btn"
+                >
+                    Refresh Tasks
+                </button>
+
+            </div>
+
+
+            <!-- =====================================
+                 TASK SUMMARY
+            ====================================== -->
+
+            <div class="dashboard-summary">
+
+                <div class="summary-card">
+
+                    <h3>Total Tasks</h3>
+
+                    <p id="totalTasks">0</p>
+
+                    <span>All learner tasks</span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>Completed Tasks</h3>
+
+                    <p id="completedTasks">0</p>
+
+                    <span>Successfully completed</span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>Outstanding Tasks</h3>
+
+                    <p id="outstandingTasks">0</p>
+
+                    <span>Tasks awaiting completion</span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>Completion Rate</h3>
+
+                    <p id="completionRate">0%</p>
+
+                    <span>Overall learner progress</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 SEARCH AND FILTERS
+            ====================================== -->
+
+            <div class="assessor-task-filters">
+
+                <div class="assessor-filter-group">
+
+                    <label for="taskSearch">
+                        Search Tasks
+                    </label>
+
+                    <input
+                        type="text"
+                        id="taskSearch"
+                        placeholder="Search task or learner..."
+                    >
+
+                </div>
+
+
+                <div class="assessor-filter-group">
+
+                    <label for="learnerFilter">
+                        Filter by Learner
+                    </label>
+
+                    <select id="learnerFilter">
+
+                        <option value="all">
+                            All Learners
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="assessor-filter-group">
+
+                    <label for="statusFilter">
+                        Filter by Status
+                    </label>
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Tasks
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                        <option value="outstanding">
+                            Outstanding
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 LEARNER TASK LIST
+            ====================================== -->
+
+            <div class="dashboard-section">
+
+                <div class="section-header">
+
+                    <h2>All Learner Tasks</h2>
+
+                    <span id="taskCount">
+                        0 tasks
+                    </span>
+
+                </div>
+
+                <div
+                    id="assessorTaskList"
+                    class="assessor-task-list"
+                    aria-live="polite"
+                >
+
+                    <p class="task-empty-message">
+                        Loading learner tasks...
+                    </p>
+
+                </div>
+
+            </div>
 
         </section>
 
     </main>
 
 </div>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script
+    type="module"
+    src="Java/Assessor_Task.js">
+</script>
+
+<script
+    type="module"
+    src="Java/Logout.js">
+</script>
+
 </body>
 </html>

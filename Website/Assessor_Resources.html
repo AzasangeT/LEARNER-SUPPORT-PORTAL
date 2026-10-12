@@ -3,77 +3,200 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assessor_Resources</title>
+    <link rel="stylesheet" href="SRC/stylesheet.css">
+    <title>Assessor Resources | Skills Track</title>
 </head>
 <body>
-    <!-- Sidebar -->
-    <aside class="sidebar">
 
-        <div class="sidebar-logo">
-            Skills Track
-        </div>
+<div class="app-layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">Skills Track</div>
 
         <nav class="sidebar-nav">
-
-            <a href="Assessor_Dashboard.html" class="active">
-                Dashboard
-            </a>
-
-            <a href="Assessor_Progress.html">
-                Progress
-            </a>
-
-            <a href="Assessor_Task.html">
-                Tasks
-            </a>
-
-            <a href="Assessor_Booking.html">
-                Booking
-            </a>
-
-            <a href="Assessor_Resources.html">
-                Assessor Resources
-            </a>
-
-            <a href="Assessor_Game.html">
-                Game
-            </a>
-
+            <a href="Assessor_Dashboard.html">Dashboard</a>
+            <a href="Assessor_Progress.html">Progress</a>
+            <a href="Assessor_Task.html">Tasks</a>
+            <a href="Assessor_Booking.html">Booking</a>
+            <a href="Assessor_Resources.html" class="active">Documents</a>
+            <a href="Assessor_Game.html">Game</a>
         </nav>
 
         <div class="sidebar-bottom">
-
-            <a href="#" class="logout-link">
+            <button type="button" id="logoutBtn" class="logout-btn">
                 Logout
-            </a>
-
+            </button>
         </div>
-
     </aside>
 
-
-    <!-- Main Application -->
     <main class="main-content">
 
         <header class="app-header">
-
-            <h1>Dashboard</h1>
+            <h1>Assessor Resources</h1>
 
             <div class="user-area">
-                Welcome, Kenneth
+                Welcome, <span id="assessorName">Loading...</span>
             </div>
-
         </header>
-
 
         <section class="dashboard-content">
 
-            <!-- Dashboard content goes here -->
+            <div class="assessor-task-heading">
+                <div>
+                    <h2>Learning Resources</h2>
+                    <p>Publish and manage learning materials for your Learners.</p>
+                </div>
+
+                <button type="button" id="showResourceFormBtn"
+                        class="assessor-refresh-btn">
+                    + Add Resource
+                </button>
+            </div>
+
+            <div class="dashboard-summary">
+                <div class="summary-card">
+                    <h3>Total Resources</h3>
+                    <p id="totalResources">0</p>
+                    <span>Published materials</span>
+                </div>
+
+                <div class="summary-card">
+                    <h3>JavaScript</h3>
+                    <p id="javascriptResources">0</p>
+                    <span>JavaScript materials</span>
+                </div>
+
+                <div class="summary-card">
+                    <h3>Python</h3>
+                    <p id="pythonResources">0</p>
+                    <span>Python materials</span>
+                </div>
+
+                <div class="summary-card">
+                    <h3>Database</h3>
+                    <p id="databaseResources">0</p>
+                    <span>Database materials</span>
+                </div>
+            </div>
+
+            <!-- RESOURCE FORM -->
+
+            <section id="resourceFormSection"
+                     class="dashboard-section resource-form-section"
+                     hidden>
+
+                <h2 id="resourceFormHeading">Add Learning Resource</h2>
+
+                <form id="resourceForm" class="support-request-form">
+
+                    <div class="form-group">
+                        <label for="resourceTitle">Resource Title</label>
+                        <input type="text" id="resourceTitle"
+                               maxlength="120" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resourceCategory">Category</label>
+
+                        <select id="resourceCategory" required>
+                            <option value="">Select Category</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="Python">Python</option>
+                            <option value="Database">Database</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resourceType">Resource Type</label>
+
+                        <select id="resourceType" required>
+                            <option value="">Select Type</option>
+                            <option value="PDF">PDF</option>
+                            <option value="Document">Document</option>
+                            <option value="Video">Video</option>
+                            <option value="Website">Website</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resourceUrl">Resource URL</label>
+                        <input type="url" id="resourceUrl"
+                               placeholder="https://example.com/material.pdf"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="resourceDescription">Description</label>
+
+                        <textarea id="resourceDescription" rows="4"
+                                  maxlength="1000" required></textarea>
+                    </div>
+
+                    <div class="support-request-actions">
+                        <button type="button" id="cancelResourceBtn"
+                                class="cancel-btn">
+                            Cancel
+                        </button>
+
+                        <button type="submit" id="saveResourceBtn"
+                                class="submit-request-btn">
+                            Publish Resource
+                        </button>
+                    </div>
+
+                </form>
+            </section>
+
+            <!-- RESOURCE FILTERS -->
+
+            <div class="assessor-task-filters">
+
+                <div class="assessor-filter-group">
+                    <label for="resourceSearch">Search Resources</label>
+                    <input type="search" id="resourceSearch"
+                           placeholder="Search by title...">
+                </div>
+
+                <div class="assessor-filter-group">
+                    <label for="resourceFilter">Category</label>
+
+                    <select id="resourceFilter">
+                        <option value="all">All Categories</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python">Python</option>
+                        <option value="Database">Database</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <section class="dashboard-section">
+
+                <div class="section-header">
+                    <h2>Published Resources</h2>
+
+                    <button type="button" id="refreshResourcesBtn"
+                            class="assessor-refresh-btn">
+                        Refresh
+                    </button>
+                </div>
+
+                <p id="resourceMessage" role="status"></p>
+
+                <div id="assessorResourceList" class="resource-grid">
+                    <p>Loading resources...</p>
+                </div>
+
+            </section>
 
         </section>
-
     </main>
-
 </div>
+
+<script type="module" src="Java/Assessor_Resources.js"></script>
+<script type="module" src="Java/Logout.js"></script>
+
 </body>
 </html>

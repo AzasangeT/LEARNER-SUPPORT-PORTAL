@@ -4,93 +4,110 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="SRC/stylesheet.css">
-    <title>Learner_Resources</title>
+    <title>Learner Resources | Skills Track</title>
 </head>
 <body>
-    <!-- Sidebar -->
-    <aside class="sidebar">
 
-        <div class="sidebar-logo">
-            Skills Track
-        </div>
+<div class="app-layout">
+
+    <aside class="sidebar">
+        <div class="sidebar-logo">Skills Track</div>
 
         <nav class="sidebar-nav">
-
-            <a href="Learner_Dashboard.html" >
-                Dashboard
-            </a>
-
-            <a href="Learner_Progress.html">
-                Progress
-            </a>
-
-            <a href="Learner_Tasks.html">
-                Tasks
-            </a>
-
-            <a href="Learner_Booking.html">
-                Booking
-            </a>
-
+            <a href="Learner_Dashboard.html">Dashboard</a>
+            <a href="Learner_Progress.html">Progress</a>
+            <a href="Learner_Task.html">Tasks</a>
+            <a href="Learner_Booking.html">Booking</a>
             <a href="Learner_Resources.html" class="active">
                 Learner Resources
             </a>
-
-            <a href="Learner_Game.html">
-                Game
-            </a>
-
+            <a href="Learner_Game.html">Game</a>
         </nav>
 
         <div class="sidebar-bottom">
-
-            <button
-                  type="button"
-                  id="logoutBtn"
-                  class="logout-btn"
-                >
-               Logout
-           </button>
-
+            <button type="button" id="logoutBtn" class="logout-btn">
+                Logout
+            </button>
         </div>
-
     </aside>
 
-
-    <!-- Main Application -->
     <main class="main-content">
 
         <header class="app-header">
-
             <h1>Learner Resources</h1>
 
             <div class="user-area">
-                Welcome, Kenneth
+                Welcome, <span id="learnerName">Loading...</span>
             </div>
-
         </header>
-
 
         <section class="dashboard-content">
 
-            <!-- Dashboard content goes here -->
+            <div class="assessor-task-heading">
+                <div>
+                    <h2>Learning Materials</h2>
+                    <p>Access resources shared by your Assessors.</p>
+                </div>
+
+                <button type="button" id="refreshResourcesBtn"
+                        class="assessor-refresh-btn">
+                    Refresh Resources
+                </button>
+            </div>
+
+            <div class="dashboard-summary">
+                <div class="summary-card">
+                    <h3>Available Resources</h3>
+                    <p id="totalResources">0</p>
+                    <span>Learning materials</span>
+                </div>
+            </div>
+
+            <div class="assessor-task-filters">
+
+                <div class="assessor-filter-group">
+                    <label for="resourceSearch">Search Resources</label>
+
+                    <input type="search" id="resourceSearch"
+                           placeholder="Search learning materials...">
+                </div>
+
+                <div class="assessor-filter-group">
+                    <label for="resourceFilter">Category</label>
+
+                    <select id="resourceFilter">
+                        <option value="all">All Categories</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python">Python</option>
+                        <option value="Database">Database</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <section class="dashboard-section">
+
+                <div class="section-header">
+                    <h2>Available Learning Resources</h2>
+                    <span id="resourceCount">0 resources</span>
+                </div>
+
+                <p id="resourceMessage" role="status"></p>
+
+                <div id="learnerResourceList" class="resource-grid">
+                    <p>Loading resources...</p>
+                </div>
+
+            </section>
 
         </section>
 
     </main>
-
 </div>
 
-
-
-
-<script
-    type="module"
-    src="Java/Logout.js">
-</script>
-
-
-   <script type="module" src="Java/Learner_Resources.js"></script>
+<script type="module" src="Java/Learner_Resources.js"></script>
+<script type="module" src="Java/Logout.js"></script>
 
 </body>
 </html>
