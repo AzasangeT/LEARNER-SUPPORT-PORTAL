@@ -3513,3 +3513,104 @@ textarea:focus {
     }
 >>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
 }
+
+
+/* CODE WORD SCRAMBLE GAME */
+
+.game-container {
+    max-width: 700px;
+    margin: 40px auto;
+    padding: 25px;
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+.back-button {
+    display: block;
+    text-align: left;
+    margin-bottom: 25px;
+    color: #5b4bdb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.game-description {
+    color: #666;
+    margin-bottom: 25px;
+}
+
+.score-section {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    background-color: #f0efff;
+    border-radius: 12px;
+}
+
+.game-card {
+    padding: 35px 20px;
+    background-color: #ffffff;
+    border: 1px solid #e5e5e5;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+#scrambledWord {
+    font-size: 36px;
+    letter-spacing: 6px;
+    color: #5b4bdb;
+    margin: 20px 0;
+}
+
+#hint {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+#answerInput {
+    width: 85%;
+    max-width: 350px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+.game-card button {
+    padding: 12px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 8px;
+    background-color: #5b4bdb;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.game-card button:hover {
+    background-color: #4535b5;
+}
+
+#feedback {
+    font-weight: bold;
+    min-height: 24px;
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    #scrambledWord {
+        font-size: 27px;
+        letter-spacing: 4px;
+    }
+
+    .game-card {
+        padding: 25px 12px;
+    }
+}
