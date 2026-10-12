@@ -14,14 +14,12 @@
         href="SRC/stylesheet.css"
     >
 
-    <title>Learner Dashboard</title>
+    <title>Learner Dashboard | Skills Track</title>
 </head>
-
 
 <body>
 
 <div class="app-layout">
-
 
     <!-- =========================================
          SIDEBAR
@@ -33,13 +31,9 @@
             Skills Track
         </div>
 
-
         <nav class="sidebar-nav">
 
-            <a
-                href="Learner_Dashboard.html"
-                class="active"
-            >
+            <a href="Learner_Dashboard.html" class="active">
                 Dashboard
             </a>
 
@@ -65,7 +59,6 @@
 
         </nav>
 
-
         <div class="sidebar-bottom">
 
             <button
@@ -81,34 +74,24 @@
     </aside>
 
 
-
     <!-- =========================================
          MAIN APPLICATION
     ========================================= -->
 
     <main class="main-content">
 
-
-        <!-- Header -->
+        <!-- HEADER -->
 
         <header class="app-header">
 
-            <h1>
-                Dashboard
-            </h1>
+            <h1>Dashboard</h1>
 
             <div class="user-area">
-
                 Welcome,
-
-                <span id="learnerName">
-                    Learner
-                </span>
-
+                <span id="learnerName">Learner</span>
             </div>
 
         </header>
-
 
 
         <!-- =========================================
@@ -117,25 +100,19 @@
 
         <section class="dashboard-content">
 
-
             <!-- =====================================
                  SUMMARY CARDS
             ====================================== -->
 
             <div class="dashboard-summary">
 
-
-                <!-- Total Tasks -->
+                <!-- TOTAL TASKS -->
 
                 <div class="summary-card">
 
-                    <h3>
-                        My Tasks
-                    </h3>
+                    <h3>My Tasks</h3>
 
-                    <p id="totalTasks">
-                        0
-                    </p>
+                    <p id="totalTasks">0</p>
 
                     <span id="outstandingTaskText">
                         Loading tasks...
@@ -144,17 +121,13 @@
                 </div>
 
 
-                <!-- Completed Tasks -->
+                <!-- COMPLETED TASKS -->
 
                 <div class="summary-card">
 
-                    <h3>
-                        Completed Tasks
-                    </h3>
+                    <h3>Completed Tasks</h3>
 
-                    <p id="completedTasks">
-                        0
-                    </p>
+                    <p id="completedTasks">0</p>
 
                     <span>
                         Keep it up!
@@ -163,17 +136,13 @@
                 </div>
 
 
-                <!-- Progress -->
+                <!-- PROGRESS -->
 
                 <div class="summary-card">
 
-                    <h3>
-                        My Progress
-                    </h3>
+                    <h3>My Progress</h3>
 
-                    <p id="overallProgress">
-                        0%
-                    </p>
+                    <p id="overallProgress">0%</p>
 
                     <span>
                         Overall progress
@@ -182,17 +151,13 @@
                 </div>
 
 
-                <!-- Support -->
+                <!-- SUPPORT REQUESTS -->
 
                 <div class="summary-card">
 
-                    <h3>
-                        Support Requests
-                    </h3>
+                    <h3>Support Requests</h3>
 
-                    <p id="supportRequestCount">
-                        0
-                    </p>
+                    <p id="supportRequestCount">0</p>
 
                     <span id="supportRequestText">
                         No active requests
@@ -203,7 +168,6 @@
             </div>
 
 
-
             <!-- =====================================
                  MY TASKS
             ====================================== -->
@@ -212,18 +176,13 @@
 
                 <div class="section-header">
 
-                    <h2>
-                        My Tasks
-                    </h2>
+                    <h2>My Tasks</h2>
 
                     <a href="Learner_Task.html">
                         View All
                     </a>
 
                 </div>
-
-
-                <!-- Firebase tasks appear here -->
 
                 <div
                     class="task-list"
@@ -239,32 +198,54 @@
             </div>
 
 
-
             <!-- =====================================
                  ANNOUNCEMENTS
             ====================================== -->
 
-            <div class="dashboard-section">
+            <section class="dashboard-section learner-announcements-section">
 
                 <div class="section-header">
 
-                    <h2>
-                        Announcements
-                    </h2>
+                    <div>
+
+                        <h2>Latest Announcements</h2>
+
+                        <p>
+                            Stay updated with important information
+                            from your Assessors.
+                        </p>
+
+                    </div>
+
+                    <span id="announcementCount">
+                        0 announcements
+                    </span>
 
                 </div>
 
 
-                <div id="dashboardAnnouncements">
+                <!-- Firebase status messages -->
+
+                <p
+                    id="learnerAnnouncementStatus"
+                    role="status"
+                ></p>
+
+
+                <!-- Announcements loaded from Firebase -->
+
+                <div
+                    id="dashboardAnnouncements"
+                    class="announcement-list"
+                >
 
                     <p class="task-empty-message">
-                        No announcements available.
+                        Loading announcements...
                     </p>
 
                 </div>
 
-            </div>
-
+            </section>
 
 
             <!-- =====================================
@@ -275,16 +256,13 @@
 
                 <div class="section-header">
 
-                    <h2>
-                        Upcoming Support
-                    </h2>
+                    <h2>Upcoming Support</h2>
 
                     <a href="Learner_Booking.html">
                         View Bookings
                     </a>
 
                 </div>
-
 
                 <div id="dashboardBookings">
 
@@ -296,7 +274,6 @@
 
             </div>
 
-
         </section>
 
     </main>
@@ -304,19 +281,32 @@
 </div>
 
 
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
 
+<!-- Existing dashboard functionality -->
 
 <script
     type="module"
     src="Java/Learner_Dashboard.js">
 </script>
 
+
+<!-- Firebase announcements functionality -->
+
+<script
+    type="module"
+    src="Java/Learner_Announcements.js">
+</script>
+
+
+<!-- Logout functionality -->
+
 <script
     type="module"
     src="Java/Logout.js">
 </script>
 
-
 </body>
-
 </html>
