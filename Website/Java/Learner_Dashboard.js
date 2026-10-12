@@ -9,9 +9,9 @@ import {
 
 import {
     ref,
-    get
+    get,
+    onValue
 } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-database.js";
-
 
 import {
     auth,
@@ -47,6 +47,22 @@ const overallProgressElement =
 const dashboardTaskList =
     document.getElementById("dashboardTaskList");
 
+
+// =========================================
+// SUPPORT BOOKINGS ELEMENTS
+// =========================================
+
+const supportRequestCount =
+    document.getElementById("supportRequestCount");
+
+const supportRequestText =
+    document.getElementById("supportRequestText");
+
+const dashboardBookings =
+    document.getElementById("dashboardBookings");
+
+// Firebase listener
+let unsubscribeBookings = null;
 
 
 // =========================================

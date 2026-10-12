@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="SRC/stylesheet.css">
+
+    <title>Assessor Announcements | Skills Track</title>
+</head>
+
+<body>
+
+    <div class="app-layout">
+
+        <!-- =========================================
+             SIDEBAR
+        ========================================= -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                Skills Track
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="Assessor_Dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="Assessor_Progress.html">
+                    Progress
+                </a>
+
+                <a href="Assessor_Task.html">
+                    Tasks
+                </a>
+
+                <a href="Assessor_Booking.html">
+                    Booking
+                </a>
+
+                <a href="Assessor_Announcements.html" class="active">
+                    Announcements
+                </a>
+
+                <a href="Assessor_Resources.html">
+                    Resources
+                </a>
+
+                <a href="Assessor_Game.html">
+                    Game
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <button
+                    type="button"
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =========================================
+             MAIN CONTENT
+        ========================================= -->
+
+        <main class="main-content">
+
+            <!-- =====================================
+                 HEADER
+            ====================================== -->
+
+            <header class="app-header">
+
+                <h1>Announcements</h1>
+
+                <div class="user-area">
+                    Welcome,
+                    <span id="assessorName">Loading...</span>
+                </div>
+
+            </header>
+
+
+            <!-- =====================================
+                 DASHBOARD CONTENT
+            ====================================== -->
+
+            <section class="dashboard-content">
+
+                <!-- =================================
+                     PAGE HEADING
+                ================================== -->
+
+                <div class="assessor-task-heading">
+
+                    <div>
+
+                        <h2>Manage Announcements</h2>
+
+                        <p>
+                            Publish important updates and information
+                            for your Learners.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="createAnnouncementBtn"
+                        class="assessor-refresh-btn"
+                    >
+                        + Create Announcement
+                    </button>
+
+                </div>
+
+
+                <!-- =================================
+                     SUMMARY CARDS
+                ================================== -->
+
+                <div class="dashboard-summary">
+
+                    <div class="summary-card">
+
+                        <h3>Total Announcements</h3>
+
+                        <p id="totalAnnouncements">0</p>
+
+                        <span>Published announcements</span>
+
+                    </div>
+
+
+                    <div class="summary-card">
+
+                        <h3>Important Announcements</h3>
+
+                        <p id="importantAnnouncements">0</p>
+
+                        <span>Priority updates</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     CREATE / EDIT ANNOUNCEMENT
+                ================================== -->
+
+                <section
+                    id="announcementFormSection"
+                    class="dashboard-section announcement-form-section"
+                    hidden
+                >
+
+                    <h2 id="announcementFormHeading">
+                        Create Announcement
+                    </h2>
+
+                    <form id="announcementForm">
+
+                        <!-- Announcement Title -->
+
+                        <div class="form-group">
+
+                            <label for="announcementTitle">
+                                Announcement Title
+                            </label>
+
+                            <input
+                                type="text"
+                                id="announcementTitle"
+                                placeholder="Enter announcement title"
+                                maxlength="120"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Announcement Category -->
+
+                        <div class="form-group">
+
+                            <label for="announcementCategory">
+                                Category
+                            </label>
+
+                            <select
+                                id="announcementCategory"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Category
+                                </option>
+
+                                <option value="General">
+                                    General
+                                </option>
+
+                                <option value="Assessment">
+                                    Assessment
+                                </option>
+
+                                <option value="Deadline">
+                                    Deadline
+                                </option>
+
+                                <option value="Event">
+                                    Event
+                                </option>
+
+                                <option value="Other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Announcement Message -->
+
+                        <div class="form-group">
+
+                            <label for="announcementMessage">
+                                Announcement Message
+                            </label>
+
+                            <textarea
+                                id="announcementMessage"
+                                rows="6"
+                                placeholder="Write your announcement here..."
+                                maxlength="3000"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- Announcement Priority -->
+
+                        <div class="form-group">
+
+                            <label for="announcementPriority">
+                                Priority
+                            </label>
+
+                            <select id="announcementPriority">
+
+                                <option value="Normal">
+                                    Normal
+                                </option>
+
+                                <option value="Important">
+                                    Important
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <!-- Form Buttons -->
+
+                        <div class="support-request-actions">
+
+                            <button
+                                type="button"
+                                id="cancelAnnouncementBtn"
+                                class="cancel-btn"
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                type="submit"
+                                id="saveAnnouncementBtn"
+                                class="submit-request-btn"
+                            >
+                                Publish Announcement
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+
+                <!-- =================================
+                     SEARCH AND FILTER
+                ================================== -->
+
+                <div class="assessor-task-filters">
+
+                    <!-- Search Announcements -->
+
+                    <div class="assessor-filter-group">
+
+                        <label for="announcementSearch">
+                            Search Announcements
+                        </label>
+
+                        <input
+                            type="search"
+                            id="announcementSearch"
+                            placeholder="Search announcements..."
+                        >
+
+                    </div>
+
+
+                    <!-- Filter by Category -->
+
+                    <div class="assessor-filter-group">
+
+                        <label for="announcementFilter">
+                            Category
+                        </label>
+
+                        <select id="announcementFilter">
+
+                            <option value="all">
+                                All Categories
+                            </option>
+
+                            <option value="General">
+                                General
+                            </option>
+
+                            <option value="Assessment">
+                                Assessment
+                            </option>
+
+                            <option value="Deadline">
+                                Deadline
+                            </option>
+
+                            <option value="Event">
+                                Event
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================
+                     PUBLISHED ANNOUNCEMENTS
+                ================================== -->
+
+                <section class="dashboard-section">
+
+                    <div class="section-header">
+
+                        <h2>
+                            Published Announcements
+                        </h2>
+
+                        <button
+                            type="button"
+                            id="refreshAnnouncementsBtn"
+                            class="assessor-refresh-btn"
+                        >
+                            Refresh
+                        </button>
+
+                    </div>
+
+
+                    <!-- Status / Error Messages -->
+
+                    <p
+                        id="announcementMessageStatus"
+                        role="status"
+                    ></p>
+
+
+                    <!-- Dynamic Announcements List -->
+
+                    <div
+                        id="assessorAnnouncementList"
+                        class="announcement-list"
+                    >
+
+                        <p>
+                            Loading announcements...
+                        </p>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script
+        type="module"
+        src="Java/Assessor_Announcements.js"
+    ></script>
+
+    <script
+        type="module"
+        src="Java/Logout.js"
+    ></script>
+
+</body>
+
+</html>
