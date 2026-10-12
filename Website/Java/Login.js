@@ -80,7 +80,7 @@ loginForm.addEventListener("submit", async (event) => {
             
             else {
 
-                loginMessage.textContent = "Account Type not recognised.";
+                loginMessage.textContent = "Account Type not recognized.";
 
             }
 

@@ -1,13 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="SRC/stylesheet.css">
-    <title>Assessor_Booking</title>
+
+    <title>Assessor Booking | Skills Track</title>
 </head>
+
 <body>
-    <!-- Sidebar -->
+
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+
     <aside class="sidebar">
 
         <div class="sidebar-logo">
@@ -16,7 +24,7 @@
 
         <nav class="sidebar-nav">
 
-            <a href="Assesssor_Dashboard.html" class="active">
+            <a href="Assessor_Dashboard.html">
                 Dashboard
             </a>
 
@@ -28,12 +36,12 @@
                 Tasks
             </a>
 
-            <a href="Assessor_Booking.html">
+            <a href="Assessor_Booking.html" class="active">
                 Booking
             </a>
 
-            <a href="Assessor_Progress.html">
-                Assessor Resources
+            <a href="Assessor_Resources.html">
+                Documents
             </a>
 
             <a href="Assessor_Game.html">
@@ -44,24 +52,30 @@
 
         <div class="sidebar-bottom">
 
-            <a href="#" class="logout-link">
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
                 Logout
-            </a>
+            </button>
 
         </div>
 
     </aside>
 
 
-    <!-- Main Application -->
+    <!-- MAIN CONTENT -->
+
     <main class="main-content">
 
         <header class="app-header">
 
-            <h1>Assessor Dashboard</h1>
+            <h1>Assessor Booking</h1>
 
             <div class="user-area">
-                Welcome, Kenneth
+                Welcome,
+                <span id="assessorName">Loading...</span>
             </div>
 
         </header>
@@ -69,12 +83,167 @@
 
         <section class="dashboard-content">
 
-            <!-- Dashboard content goes here -->
+            <!-- PAGE HEADING -->
+
+            <div class="assessor-task-heading">
+
+                <div>
+                    <h2>Support Booking Management</h2>
+
+                    <p>
+                        Review learner support requests,
+                        manage appointments and update booking statuses.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    id="refreshBookingsBtn"
+                    class="assessor-refresh-btn"
+                >
+                    Refresh Bookings
+                </button>
+
+            </div>
+
+
+            <!-- SUMMARY CARDS -->
+
+            <div class="dashboard-summary">
+
+                <div class="summary-card">
+
+                    <h3>Total Requests</h3>
+
+                    <p id="totalBookings">0</p>
+
+                    <span>All support requests</span>
+
+                </div>
+
+                <div class="summary-card">
+
+                    <h3>Pending</h3>
+
+                    <p id="pendingBookings">0</p>
+
+                    <span>Awaiting review</span>
+
+                </div>
+
+                <div class="summary-card">
+
+                    <h3>Approved</h3>
+
+                    <p id="approvedBookings">0</p>
+
+                    <span>Accepted bookings</span>
+
+                </div>
+
+                <div class="summary-card">
+
+                    <h3>Completed</h3>
+
+                    <p id="completedBookings">0</p>
+
+                    <span>Completed sessions</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- SEARCH AND FILTER -->
+
+            <div class="assessor-task-filters">
+
+                <div class="assessor-filter-group">
+
+                    <label for="bookingSearch">
+                        Search Bookings
+                    </label>
+
+                    <input
+                        type="text"
+                        id="bookingSearch"
+                        placeholder="Search learner or topic..."
+                    >
+
+                </div>
+
+                <div class="assessor-filter-group">
+
+                    <label for="bookingStatusFilter">
+                        Booking Status
+                    </label>
+
+                    <select id="bookingStatusFilter">
+
+                        <option value="all">All Requests</option>
+
+                        <option value="Pending">Pending</option>
+
+                        <option value="Approved">Approved</option>
+
+                        <option value="Declined">Declined</option>
+
+                        <option value="Completed">Completed</option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- BOOKING LIST -->
+
+            <div class="dashboard-section">
+
+                <div class="section-header">
+
+                    <h2>Learner Support Requests</h2>
+
+                    <span id="bookingCount">0 requests</span>
+
+                </div>
+
+                <p
+                    id="bookingMessage"
+                    class="booking-message"
+                    role="status"
+                ></p>
+
+                <div
+                    id="assessorBookingList"
+                    class="assessor-booking-list"
+                >
+
+                    <p class="task-empty-message">
+                        Loading support requests...
+                    </p>
+
+                </div>
+
+            </div>
 
         </section>
 
     </main>
 
 </div>
+
+
+<script
+    type="module"
+    src="Java/Assessor_Booking.js">
+</script>
+
+<script
+    type="module"
+    src="Java/Logout.js">
+</script>
+
 </body>
 </html>

@@ -1,68 +1,111 @@
-// Import Firebase Authentication
+// =========================================
+// SKILLS TRACK - USER REGISTRATION
+// =========================================
 
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+// Firebase Authentication imports
+import {
+    createUserWithEmailAndPassword,
+    deleteUser,
+    signOut
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-auth.js";
+
+// Firebase Realtime Database imports
+import {
+    ref,
+    set
+} from "https://www.gstatic.com/firebasejs/12.17.0/firebase-database.js";
+
+// Firebase configuration
+import {
+    auth,
+    database
+} from "./firebase.js";
 
 
-// Import Firebase Database
-
-import { ref, set } from "https://www.gstatic.com/firebasejs/12.17.0/firebase-database.js";
-
-
-// Import our Firebase connections
-
-import { auth, database } from "./firebase.js";
-
-
-// Get the registration form
+// =========================================
+// GET REGISTRATION FORM
+// =========================================
 
 const signupForm = document.getElementById("signupForm");
 
 
-// Listen for the form submission
+// =========================================
+// REGISTRATION FORM SUBMISSION
+// =========================================
 
 signupForm.addEventListener("submit", async (event) => {
 
-    // Prevent the page from refreshing
-
+    // Prevent page refresh
     event.preventDefault();
 
 
-    // Get the values entered by the user
+    // =====================================
+    // GET FORM VALUES
+    // =====================================
 
-    const fullName = document.getElementById("firstName").value.trim();
+    const fullName = document
+        .getElementById("firstName")
+        .value.trim();
 
-    const role = document.getElementById("AccountType").value;
+    const role = document
+        .getElementById("AccountType")
+        .value;
 
-    const email = document.getElementById("email").value.trim();
+    const email = document
+        .getElementById("email")
+        .value.trim();
 
-    const password = document.getElementById("password").value;
+    const password = document
+        .getElementById("password")
+        .value;
 
-    const confirmPassword = document.getElementById("confirmPassword").value;
+    const confirmPassword = document
+        .getElementById("confirmPassword")
+        .value;
 
 
-    // Check that the passwords match
+    // =====================================
+    // VALIDATE FORM
+    // =====================================
+
+    if (!fullName || !email || !password || !confirmPassword) {
+
+        alert("Please complete all required fields.");
+        return;
+
+    }
+
+    if (role !== "Learner" && role !== "Assessor") {
+
+        alert("Please select a valid account type.");
+        return;
+
+    }
 
     if (password !== confirmPassword) {
 
         alert("Passwords do not match.");
-
         return;
+
+    }
+
+    if (password.length < 6) {
+
+        alert("Password must contain at least 6 characters.");
+        return;
+
     }
 
 
-    // Check that an account type was selected
+    // =====================================
+    // CREATE FIREBASE ACCOUNT
+    // =====================================
 
-    if (role === "") {
-
-        alert("Please select an account type.");
-
-        return;
-    }
-
+    let createdUser = null;
 
     try {
 
-        // Create the Firebase Authentication account
+        console.log("Starting registration...");
 
         const userCredential = await createUserWithEmailAndPassword(
             auth,
@@ -70,15 +113,18 @@ signupForm.addEventListener("submit", async (event) => {
             password
         );
 
+        // Get newly created user
+        createdUser = userCredential.user;
 
-        // Get the newly created user's information
+        console.log("Authentication account created.");
+        console.log("User UID:", createdUser.uid);
 
-        const user = userCredential.user;
 
+        // =====================================
+        // SAVE USER TO REALTIME DATABASE
+        // =====================================
 
-        // Save the user's information in Realtime Database
-
-        await set(ref(database, "users/" + user.uid), {
+        const userData = {
 
             fullName: fullName,
 
@@ -86,27 +132,78 @@ signupForm.addEventListener("submit", async (event) => {
 
             role: role
 
-        });
+        };
+
+        try {
+
+            await set(
+                ref(database, "users/" + createdUser.uid),
+                userData
+            );
+
+            console.log("User profile saved successfully.");
+            console.log("User information:", userData);
+
+        } catch (databaseError) {
+
+            console.error(
+                "Realtime Database error:",
+                databaseError
+            );
+
+            // Attempt to remove the incomplete account
+            try {
+
+                await deleteUser(createdUser);
+
+                console.log(
+                    "Incomplete Authentication account deleted."
+                );
+
+            } catch (deleteError) {
+
+                console.error(
+                    "Could not delete incomplete account:",
+                    deleteError
+                );
+
+                // Sign out if account cleanup fails
+                try {
+
+                    await signOut(auth);
+
+                } catch (signOutError) {
+
+                    console.error(
+                        "Sign-out error:",
+                        signOutError
+                    );
+
+                }
+
+            }
+
+            alert(
+                "Registration failed while saving your profile. Please try again."
+            );
+
+            return;
+
+        }
 
 
-        // Display information in the console
+        // =====================================
+        // REGISTRATION SUCCESSFUL
+        // =====================================
 
-        console.log("Account created successfully.");
-
-        console.log("User UID:", user.uid);
-
+        console.log("Registration completed successfully.");
         console.log("Full Name:", fullName);
-
-        console.log("Role:", role);
-
-
-        // Tell the user registration was successful
+        console.log("Email:", email);
+        console.log("Account Type:", role);
 
         alert("Account created successfully!");
 
-
-        // Send the user to the Login page
-
+        // Redirect to Login page
         window.location.href = "Login.html";
 
 
@@ -115,17 +212,13 @@ signupForm.addEventListener("submit", async (event) => {
         console.error("Registration error:", error);
 
 
-        // Firebase Authentication errors
+        // =====================================
+        // FIREBASE ERROR HANDLING
+        // =====================================
 
         if (error.code === "auth/email-already-in-use") {
 
             alert("An account with this email already exists.");
-
-        }
-
-        else if (error.code === "auth/weak-password") {
-
-            alert("Password must be at least 6 characters.");
 
         }
 
@@ -135,13 +228,27 @@ signupForm.addEventListener("submit", async (event) => {
 
         }
 
+        else if (error.code === "auth/weak-password") {
+
+            alert("Password must contain at least 6 characters.");
+
+        }
+
+        else if (error.code === "auth/network-request-failed") {
+
+            alert("Network error. Please check your internet connection.");
+
+        }
+
         else {
 
-            alert("Registration failed. Please try again.");
+            alert(
+                "Registration failed: " +
+                (error.message || "Please try again.")
+            );
 
         }
 
     }
 
 });
-

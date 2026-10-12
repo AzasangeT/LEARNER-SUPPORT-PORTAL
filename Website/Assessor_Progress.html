@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="src/stylesheet.css">
-    <title>Assessor_Progress</title>
+
+    <link rel="stylesheet" href="SRC/stylesheet.css">
+
+    <title>Assessor Progress | Skills Track</title>
 </head>
+
 <body>
-    <!-- Sidebar -->
+
+<div class="app-layout">
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================= -->
+
     <aside class="sidebar">
 
         <div class="sidebar-logo">
@@ -16,27 +26,27 @@
 
         <nav class="sidebar-nav">
 
-            <a href="learner-dashboard.html" class="active">
+            <a href="Assessor_Dashboard.html">
                 Dashboard
             </a>
 
-            <a href="Learner_Progress.html">
+            <a href="Assessor_Progress.html" class="active">
                 Progress
             </a>
 
-            <a href="Learner_Progress.html">
+            <a href="Assessor_Task.html">
                 Tasks
             </a>
 
-            <a href="Learner_Booking.html">
+            <a href="Assessor_Booking.html">
                 Booking
             </a>
 
-            <a href="Learner_Progress.html">
-                Learner Resources
+            <a href="Assessor_Resources.html">
+                Documents
             </a>
 
-            <a href="settings.html">
+            <a href="Assessor_Game.html">
                 Game
             </a>
 
@@ -44,24 +54,32 @@
 
         <div class="sidebar-bottom">
 
-            <a href="#" class="logout-link">
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
                 Logout
-            </a>
+            </button>
 
         </div>
 
     </aside>
 
 
-    <!-- Main Application -->
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================= -->
+
     <main class="main-content">
 
         <header class="app-header">
 
-            <h1>Dashboard</h1>
+            <h1>Assessor Progress</h1>
 
             <div class="user-area">
-                Welcome, Kenneth
+                Welcome,
+                <span id="assessorName">Loading...</span>
             </div>
 
         </header>
@@ -69,12 +87,196 @@
 
         <section class="dashboard-content">
 
-            <!-- Dashboard content goes here -->
+            <!-- =====================================
+                 PAGE INTRODUCTION
+            ====================================== -->
+
+            <div class="assessor-progress-heading">
+
+                <div>
+
+                    <h2>Learner Progress Overview</h2>
+
+                    <p>
+                        Monitor learner performance,
+                        track task completion and identify
+                        learners who need additional support.
+                    </p>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="refreshProgressBtn"
+                    class="assessor-refresh-btn"
+                >
+                    Refresh Progress
+                </button>
+
+            </div>
+
+
+            <!-- =====================================
+                 SUMMARY CARDS
+            ====================================== -->
+
+            <div class="dashboard-summary">
+
+                <div class="summary-card">
+
+                    <h3>Total Learners</h3>
+
+                    <p id="totalLearners">0</p>
+
+                    <span>Registered learners</span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>Average Progress</h3>
+
+                    <p id="averageProgress">0%</p>
+
+                    <span>Average task completion</span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>Completed Tasks</h3>
+
+                    <p id="completedTasks">0</p>
+
+                    <span>Tasks successfully completed</span>
+
+                </div>
+
+
+                <div class="summary-card">
+
+                    <h3>Outstanding Tasks</h3>
+
+                    <p id="outstandingTasks">0</p>
+
+                    <span>Tasks awaiting completion</span>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 SEARCH AND FILTER
+            ====================================== -->
+
+            <div class="assessor-progress-filters">
+
+                <div class="assessor-filter-group">
+
+                    <label for="learnerSearch">
+                        Search Learners
+                    </label>
+
+                    <input
+                        type="search"
+                        id="learnerSearch"
+                        placeholder="Search by learner name or email..."
+                    >
+
+                </div>
+
+
+                <div class="assessor-filter-group">
+
+                    <label for="progressFilter">
+                        Filter by Progress
+                    </label>
+
+                    <select id="progressFilter">
+
+                        <option value="all">
+                            All Learners
+                        </option>
+
+                        <option value="completed">
+                            100% Complete
+                        </option>
+
+                        <option value="in-progress">
+                            In Progress
+                        </option>
+
+                        <option value="not-started">
+                            Not Started
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 LEARNER PROGRESS LIST
+            ====================================== -->
+
+            <div class="dashboard-section">
+
+                <div class="section-header">
+
+                    <h2>Individual Learner Progress</h2>
+
+                    <span id="learnerCount">
+                        0 learners
+                    </span>
+
+                </div>
+
+
+                <p
+                    id="progressMessage"
+                    class="booking-message"
+                    role="status"
+                ></p>
+
+
+                <div
+                    id="learnerProgressList"
+                    class="assessor-progress-list"
+                >
+
+                    <p class="task-empty-message">
+                        Loading learner progress...
+                    </p>
+
+                </div>
+
+            </div>
 
         </section>
 
     </main>
 
 </div>
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================= -->
+
+<script
+    type="module"
+    src="Java/Assessor_Progress.js">
+</script>
+
+<script
+    type="module"
+    src="Java/Logout.js">
+</script>
+
 </body>
 </html>

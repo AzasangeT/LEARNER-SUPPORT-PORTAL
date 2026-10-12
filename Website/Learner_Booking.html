@@ -8,12 +8,22 @@
 
     <link rel="stylesheet" href="SRC/stylesheet.css">
 
+<<<<<<< HEAD
     <title>Learner Booking</title>
+=======
+    <title>Learner Booking | Skills Track</title>
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
 </head>
 
 <body>
 
+<<<<<<< HEAD
     <!--SIDE BAR-->
+=======
+<div class="app-layout">
+
+    <!-- SIDEBAR -->
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
 
     <aside class="sidebar">
 
@@ -32,10 +42,21 @@
                 Progress
             </a>
 
+<<<<<<< HEAD
             <a href="Learner_Tasks.html">
                 Tasks
             </a>
 
+=======
+            <a href="Learner_Task.html">
+                Tasks
+            </a>
+
+            <a href="Learner_Booking.html" class="active">
+                Booking
+            </a>
+
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
             <a href="Learner_Resources.html">
                 Learner Resources
             </a>
@@ -49,17 +70,25 @@
 
         <div class="sidebar-bottom">
 
-            <a href="#" class="logout-link">
+            <button
+                type="button"
+                id="logoutBtn"
+                class="logout-btn"
+            >
                 Logout
-            </a>
+            </button>
 
         </div>
 
     </aside>
 
 
+<<<<<<< HEAD
 
     <!--MAIN CONTENT-->
+=======
+    <!-- MAIN CONTENT -->
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
 
     <main class="main-content">
 
@@ -71,23 +100,43 @@
             <h1>Learner Booking</h1>
 
             <div class="user-area">
+<<<<<<< HEAD
 
                 Welcome,
                 <span id="loggedInUser">
                     Azasange
                 </span>
 
+=======
+                Welcome,
+                <span id="learnerName">Loading...</span>
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
             </div>
 
         </header>
 
 
+<<<<<<< HEAD
 
         <!--BOOKING CONTENT-->
 
         <section class="dashboard-content">
+=======
+        <section class="dashboard-content">
 
+            <!-- SUPPORT REQUEST FORM -->
 
+            <section
+                class="support-request-section"
+                id="supportRequestSection"
+            >
+
+                <div class="support-request-header">
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
+
+                    <h2>Request Support</h2>
+
+<<<<<<< HEAD
             <!-- BACK TO DASHBOARD -->
 
             <a
@@ -189,10 +238,18 @@
                         id="preferredDate"
                         name="preferredDate"
                     >
+=======
+                    <p>
+                        Hello,
+                        <span id="learnerGreeting">Learner</span>!
+                        How can we help you today?
+                    </p>
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
 
                 </div>
 
 
+<<<<<<< HEAD
 
                 <!--PREFERRED TIME-->
 
@@ -210,43 +267,53 @@
                         <option value="">
                             Select time
                         </option>
+=======
+                <form
+                    id="supportRequestForm"
+                    class="support-request-form"
+                >
 
-                        <option value="09:00">
-                            09:00
-                        </option>
+                    <div class="form-group">
 
-                        <option value="10:00">
-                            10:00
-                        </option>
+                        <label for="supportTopic">
+                            Support Topic
+                        </label>
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
 
-                        <option value="11:00">
-                            11:00
-                        </option>
+                        <select id="supportTopic" required>
 
-                        <option value="12:00">
-                            12:00
-                        </option>
+                            <option value="">Select Topic</option>
 
-                        <option value="13:00">
-                            13:00
-                        </option>
+                            <option value="JavaScript">
+                                JavaScript
+                            </option>
 
-                        <option value="14:00">
-                            14:00
-                        </option>
+                            <option value="Python">
+                                Python
+                            </option>
 
-                        <option value="15:00">
-                            15:00
-                        </option>
+                            <option value="Database">
+                                Database
+                            </option>
 
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+<<<<<<< HEAD
                         <option value="16:00">
                             16:00
                         </option>
 
                     </select>
+=======
+                    </div>
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
 
-                </div>
 
+<<<<<<< HEAD
 
 
                 <!--HELP DESCRIPTION-->
@@ -413,8 +480,162 @@
                 </div>
 
             </div>
+=======
+                    <div class="form-group">
+
+                        <label for="preferredDate">
+                            Preferred Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="preferredDate"
+                            required
+                        >
+
+                    </div>
 
 
+                    <div class="form-group">
+
+                        <label for="preferredTime">
+                            Preferred Time
+                        </label>
+
+                        <select id="preferredTime" required>
+
+                            <option value="">Select Time</option>
+
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="supportDescription">
+                            What do you need help with?
+                        </label>
+
+                        <textarea
+                            id="supportDescription"
+                            rows="5"
+                            placeholder="Explain what you are struggling with..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <p class="booking-upload-note">
+                        Supporting document uploads will be available
+                        when the Resources feature is connected.
+                    </p>
+
+
+                    <div class="support-request-actions">
+
+                        <button
+                            type="button"
+                            id="cancelRequestBtn"
+                            class="cancel-btn"
+                        >
+                            Clear Form
+                        </button>
+
+                        <button
+                            type="submit"
+                            id="submitRequestBtn"
+                            class="submit-request-btn"
+                        >
+                            Submit Request
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </section>
+
+
+            <!-- SUCCESS MESSAGE -->
+
+            <section
+                class="request-success-section"
+                id="requestSuccessSection"
+                style="display: none;"
+            >
+
+                <div class="success-content">
+
+                    <div class="success-icon">✓</div>
+
+                    <h2>Request Submitted!</h2>
+
+                    <p>
+                        Your support request has been submitted successfully.
+                        An assessor will review your request.
+                    </p>
+
+                    <button
+                        type="button"
+                        id="viewRequestBtn"
+                        class="view-request-btn"
+                    >
+                        View My Requests
+                    </button>
+
+                    <button
+                        type="button"
+                        id="newRequestBtn"
+                        class="back-dashboard-btn"
+                    >
+                        Submit Another Request
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- SUBMITTED REQUESTS -->
+
+            <section
+                class="submitted-request-section"
+                id="submittedRequestSection"
+            >
+
+                <div class="section-header">
+
+                    <h2>My Support Requests</h2>
+
+                    <button
+                        type="button"
+                        id="refreshMyBookingsBtn"
+                        class="assessor-refresh-btn"
+                    >
+                        Refresh
+                    </button>
+
+                </div>
+
+                <div id="submittedRequestDetails">
+
+                    <p class="task-empty-message">
+                        Loading your requests...
+                    </p>
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
+
+
+<<<<<<< HEAD
 
             <!--VIEW MY REQUEST-->
 
@@ -540,11 +761,31 @@
             </div>
 
         </section>
+=======
+            </section>
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
+
+        </section>
 
     </main>
 
+<<<<<<< HEAD
 
     <script src="Java/Learner_Booking.js"></script>
+=======
+</div>
+
+
+<script
+    type="module"
+    src="Java/Learner_Booking.js">
+</script>
+
+<script
+    type="module"
+    src="Java/Logout.js">
+</script>
+>>>>>>> a189cb348d7b5cedbb7612ae622a680d0f1962b1
 
 </body>
 
