@@ -3,103 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Code Word Scramble | Skills Track</title>
+
     <link rel="stylesheet" href="SRC/stylesheet.css">
-
-    <title>Learner_Game</title>
 </head>
+
 <body>
-    <!-- Sidebar -->
-    <aside class="sidebar">
 
-        <div class="sidebar-logo">
-            Skills Track
+    <div class="game-container">
+
+        <a href="Learner_Dashboard.html" class="back-button">
+            ← Back to Dashboard
+        </a>
+
+        <h1>Code Word Scramble </h1>
+
+        <p class="game-description">
+            Test your programming knowledge by unscrambling the words!
+        </p>
+
+        <div class="score-section">
+            <p>Score: <span id="score">0</span></p>
+            <p>Word: <span id="wordNumber">1</span></p>
         </div>
 
-        <nav class="sidebar-nav">
+        <div class="game-card">
 
-           <a href="Learner_Dashboard.html" class="active">
-                Dashboard
-            </a>
+            <h2 id="scrambledWord">NOITCNUF</h2>
 
-            <a href="Learner_Progress.html">
-                Progress
-            </a>
+            <p id="hint">
+                Hint: A reusable block of code that performs a task.
+            </p>
 
-            <a href="Learner_Task.html">
-                Tasks
-            </a>
+            <input
+                type="text"
+                id="answerInput"
+                placeholder="Enter your answer"
+                autocomplete="off"
+            >
 
-            <a href="Learner_Booking.html">
-                Booking
-            </a>
+            <p id="feedback"></p>
 
-            <a href="Learner_Progress.html">
-                Learner Resources
-            </a>
+            <button id="checkButton">Check Answer</button>
 
-            <a href="Learner_Game.html" class="active">
-                Game
-            </a>
+            <button id="nextButton" hidden>Next Word</button>
 
-            
-
-        </nav>
-
-        <div class="sidebar-bottom">
-
-          <button
-                  type="button"
-                  id="logoutBtn"
-                  class="logout-btn"
-                >
-               Logout
-           </button>
+            <button id="restartButton" hidden>Play Again</button>
 
         </div>
 
-    </aside>
+    </div>
 
-
-    <!-- Main Application -->
-    <main class="main-content">
-
-        <header class="app-header">
-
-            <h1>Learner Game</h1>
-
-            <div class="user-area">
-                Welcome, Kenneth
-            </div>
-
-        </header>
-
-
-        <section class="dashboard-content">
-
-            <!-- Dashboard content goes here -->
-
-        </section>
-
-    </main>
-
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-<script
-    type="module"
-    src="Java/Logout.js">
-</script>
-
+    <script src="SRC/Learner_Game.js"></script>
 
 </body>
 </html>
