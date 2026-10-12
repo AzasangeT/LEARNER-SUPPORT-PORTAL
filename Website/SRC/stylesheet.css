@@ -2678,3 +2678,87 @@ textarea:focus {
     }
 
 }
+
+/* =========================================
+   ASSESSOR DASHBOARD
+========================================= */
+
+
+/* Learner Progress List */
+
+.assessor-learner-list {
+    display: grid;
+    grid-template-columns: repeat(
+        auto-fit,
+        minmax(250px, 1fr)
+    );
+    gap: 20px;
+}
+
+
+/* Individual Learner Card */
+
+.assessor-learner-card {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    transition: 0.3s ease;
+}
+
+
+.assessor-learner-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* Learner Name */
+
+.assessor-learner-card h3 {
+    font-size: 17px;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+}
+
+
+/* Learner Information */
+
+.assessor-learner-card p {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 10px;
+}
+
+
+/* Progress Bar */
+
+.assessor-learner-card .progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--light-blue);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+
+/* Progress Bar Fill */
+
+.assessor-learner-card .progress-bar-fill {
+    height: 100%;
+    background-color: var(--primary-blue);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .assessor-learner-list {
+        grid-template-columns: 1fr;
+    }
+
+}
