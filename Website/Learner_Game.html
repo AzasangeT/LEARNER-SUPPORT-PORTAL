@@ -1,105 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="SRC/stylesheet.css">
 
-    <title>Learner_Game</title>
+    <title>Learner Game | Skills Track</title>
 </head>
+
 <body>
-    <!-- Sidebar -->
-    <aside class="sidebar">
 
-        <div class="sidebar-logo">
-            Skills Track
-        </div>
+    <!-- =========================================
+         SKILLS TRACK - APPLICATION LAYOUT
+    ========================================= -->
 
-        <nav class="sidebar-nav">
+    <div class="app-layout">
 
-           <a href="Learner_Dashboard.html" class="active">
-                Dashboard
-            </a>
+        <!-- =========================================
+             SIDEBAR
+        ========================================= -->
 
-            <a href="Learner_Progress.html">
-                Progress
-            </a>
+        <aside class="sidebar">
 
-            <a href="Learner_Task.html">
-                Tasks
-            </a>
-
-            <a href="Learner_Booking.html">
-                Booking
-            </a>
-
-            <a href="Learner_Progress.html">
-                Learner Resources
-            </a>
-
-            <a href="Learner_Game.html" class="active">
-                Game
-            </a>
-
-            
-
-        </nav>
-
-        <div class="sidebar-bottom">
-
-          <button
-                  type="button"
-                  id="logoutBtn"
-                  class="logout-btn"
-                >
-               Logout
-           </button>
-
-        </div>
-
-    </aside>
-
-
-    <!-- Main Application -->
-    <main class="main-content">
-
-        <header class="app-header">
-
-            <h1>Learner Game</h1>
-
-            <div class="user-area">
-                Welcome, Kenneth
+            <div class="sidebar-logo">
+                Skills Track
             </div>
 
-        </header>
+            <nav class="sidebar-nav">
+
+                <a href="Learner_Dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="Learner_Progress.html">
+                    Progress
+                </a>
+
+                <a href="Learner_Task.html">
+                    Tasks
+                </a>
+
+                <a href="Learner_Booking.html">
+                    Booking
+                </a>
+
+                <a href="Learner_Resources.html">
+                    Learner Resources
+                </a>
+
+                <a href="Learner_Game.html" class="active">
+                    Game
+                </a>
+
+            </nav>
+
+            <!-- Logout -->
+
+            <div class="sidebar-bottom">
+
+                <button
+                    type="button"
+                    id="logoutBtn"
+                    class="logout-btn"
+                >
+                    Logout
+                </button>
+
+            </div>
+
+        </aside>
 
 
-        <section class="dashboard-content">
+        <!-- =========================================
+             MAIN CONTENT
+        ========================================= -->
 
-            <!-- Dashboard content goes here -->
+        <main class="main-content">
 
-        </section>
+            <!-- Application Header -->
 
-    </main>
+            <header class="app-header">
 
-</div>
+                <h1>Learner Game</h1>
 
+                <div class="user-area">
+                    Skills Track
+                </div>
 
-
-
-
-
-
-
-
-
+            </header>
 
 
-<script
-    type="module"
-    src="Java/Logout.js">
-</script>
+            <!-- =========================================
+                 GAME PAGE CONTENT
+            ========================================= -->
 
+            <section class="dashboard-content">
+
+                <div class="game-container">
+
+                 
+
+                    <!-- Game Introduction -->
+
+                    <div class="game-intro">
+
+                        <h1>Code Word Scramble</h1>
+
+                        <p class="game-description">
+                            Test your programming knowledge by
+                            unscrambling the words!
+                        </p>
+
+                    </div>
+
+
+                    <!-- =========================================
+                         GAME STATISTICS
+                    ========================================= -->
+
+                    <div class="score-section">
+
+                        <p>
+                            Time:
+                            <span id="timer">90</span>
+                        </p>
+
+                        <p>
+                            Score:
+                            <span id="score">0</span>
+                        </p>
+
+                        <p>
+                            Word:
+                            <span id="wordNumber">1</span>
+                        </p>
+
+                    </div>
+
+
+                    <!-- =========================================
+                         GAME CARD
+                    ========================================= -->
+
+                    <div class="game-card">
+
+                        <!-- Scrambled Word -->
+
+                        <h2 id="scrambledWord">
+                            NOITCNUF
+                        </h2>
+
+
+                        <!-- Hint -->
+
+                        <p id="hint">
+                            Hint: A reusable block of code
+                            that performs a task.
+                        </p>
+
+
+                        <!-- Answer Input -->
+
+                        <input
+                            type="text"
+                            id="answerInput"
+                            placeholder="Enter your answer"
+                            autocomplete="off"
+                        >
+
+
+                        <!-- Feedback -->
+
+                        <p id="feedback"></p>
+
+
+                        <!-- Game Controls -->
+
+                        <div class="game-actions">
+
+                            <button
+                                type="button"
+                                id="checkButton"
+                            >
+                                Check Answer
+                            </button>
+
+                            <button
+                                type="button"
+                                id="nextButton"
+                                hidden
+                            >
+                                Next Word
+                            </button>
+
+                            <button
+                                type="button"
+                                id="restartButton"
+                                hidden
+                            >
+                                Play Again
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- =========================================
+                         GAME RESULTS SCREEN
+                    ========================================= -->
+
+                    <div id="resultsScreen" hidden>
+
+                        <h2>🏆 Game Complete!</h2>
+
+                        <p id="resultMessage">
+                            Well done!
+                        </p>
+
+
+                        <!-- Final Score -->
+
+                        <div class="result-card">
+
+                            <p>Your Final Score</p>
+
+                            <h1>
+                                <span id="finalScore">0</span> / 100
+                            </h1>
+
+                        </div>
+
+
+                        <!-- Performance Message -->
+
+                        <p id="performanceMessage"></p>
+
+
+                        <!-- Results Actions -->
+
+                        <div class="game-actions">
+
+                            <button
+                                type="button"
+                                id="resultsPlayAgain"
+                            >
+                                Play Again
+                            </button>
+
+                            <a
+                                href="Learner_Dashboard.html"
+                                class="back-button"
+                            >
+                                Back to Dashboard
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <!-- Game Functionality -->
+
+    <script type="module" src="Java/Learner_Game.js"></script>
+
+
+    <!-- Firebase Logout -->
+
+    <script
+        type="module"
+        src="Java/Logout.js"
+    ></script>
 
 </body>
+
 </html>
